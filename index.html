@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>N1 · P02 — Prezența Mentală | Inner Human Architecture™</title>
+<meta name="description" content="Workbook interactiv — Nivelul 1, Prezență, P02 — Prezența Mentală. Inner Human Architecture™.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1A2C50;
+  --navy-2:#233a63;
+  --gold:#C4922A;
+  --gold-2:#E4C077;
+  --cream:#FCF9F4;
+  --cream-2:#F3EFE3;
+  --line:#E4DCC8;
+  --ink:#1A2C50;
+  --radius:14px;
+  --maxw:840px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Source Serif 4', Georgia, serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4,.serif-display{
+  font-family:'Cormorant Garamond', Georgia, serif;
+  color:var(--navy);
+  font-weight:600;
+  letter-spacing:.01em;
+}
+a{color:var(--navy);}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
+
+/* ---------- TOPBAR ---------- */
+.topbar{
+  position:sticky; top:0; z-index:100;
+  background:rgba(252,249,244,.94);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid var(--line);
+}
+.topbar-inner{
+  max-width:var(--maxw); margin:0 auto; padding:10px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  flex-wrap:wrap;
+}
+.brandmark{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:700; color:var(--gold);
+  font-size:15px; letter-spacing:.06em; text-transform:uppercase;
+  white-space:nowrap;
+}
+.crumbs{
+  font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px;
+  flex-wrap:wrap; justify-content:flex-end;
+}
+.crumbs .step-current{color:var(--gold); font-weight:600;}
+.crumbs .sep{opacity:.5;}
+.crumbs .step-next{opacity:.55;}
+.progress-wrap{height:4px; background:var(--cream-2); width:100%;}
+.progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold-2)); transition:width .4s ease;}
+.progress-label{
+  font-size:11px; color:var(--navy); opacity:.7; text-align:right;
+  max-width:var(--maxw); margin:2px auto 0; padding:0 22px;
+}
+
+/* ---------- COVER ---------- */
+.cover{
+  background:var(--navy);
+  color:var(--cream);
+  padding:64px 22px 50px;
+  text-align:center;
+  position:relative;
+  border-bottom:3px solid var(--gold);
+}
+.cover .kicker{
+  font-family:'Cormorant Garamond',serif; color:var(--gold);
+  font-size:26px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  margin:0 0 18px;
+}
+.cover .rule{width:120px; height:1px; background:var(--gold); margin:0 auto 22px; opacity:.6;}
+.cover .lvl{font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.75; margin:0 0 6px;}
+.cover .step{font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; margin:0 0 18px;}
+.cover h1{color:var(--gold); font-size:clamp(38px,7vw,58px); margin:0 0 14px; line-height:1.05;}
+.cover .tagline{font-style:italic; color:var(--gold-2); font-size:17px; margin:0 0 26px;}
+.cover .meta{font-size:14px; opacity:.85; margin:0;}
+.cover .copyright{font-size:12px; opacity:.55; margin-top:22px;}
+
+/* ---------- TOC ---------- */
+.toc-section{padding:36px 0 10px;}
+.toc-section h2{font-size:26px; margin:0 0 6px;}
+.toc-section .sub{font-size:14.5px; opacity:.75; margin:0 0 22px;}
+.toc-group{margin-bottom:20px;}
+.toc-group-label{
+  font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold);
+  font-weight:700; margin:0 0 10px;
+}
+.toc-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+.toc-list.single{grid-template-columns:1fr;}
+.toc-list a{
+  display:flex; align-items:baseline; gap:8px;
+  text-decoration:none; color:var(--navy);
+  background:var(--cream-2); border:1px solid var(--line); border-radius:10px;
+  padding:9px 12px; font-size:14px;
+}
+.toc-list a:hover{border-color:var(--gold);}
+.toc-num{font-family:'Cormorant Garamond',serif; color:var(--gold); font-weight:700; font-size:13px;}
+
+/* ---------- PANELS ---------- */
+.panel{padding:34px 0; border-bottom:1px solid var(--line);}
+.panel-eyebrow{
+  display:flex; align-items:center; gap:10px; margin-bottom:8px;
+}
+.badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:30px; height:30px; padding:0 8px;
+  border-radius:50%; background:var(--navy); color:var(--gold);
+  font-family:'Cormorant Garamond',serif; font-weight:700; font-size:14px;
+}
+.badge.ex{border-radius:8px; background:var(--gold); color:var(--navy);}
+.eyebrow-label{font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); opacity:.6;}
+.panel h2{font-size:28px; margin:2px 0 14px;}
+.panel h3{font-size:19px; margin:22px 0 8px; color:var(--navy);}
+.panel h4{font-size:16px; margin:16px 0 6px; color:var(--navy);}
+.panel p{margin:0 0 12px; font-size:16px;}
+.lede{font-size:17px; color:var(--navy); opacity:.85;}
+.quote{
+  font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--navy);
+  font-size:19px; border-left:3px solid var(--gold); padding:4px 0 4px 16px; margin:16px 0;
+}
+.formula-box{
+  background:var(--cream-2); border:1px solid var(--gold); border-radius:var(--radius);
+  padding:18px 20px; font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--navy);
+  font-size:18px; text-align:center; margin:18px 0;
+}
+.card{
+  background:var(--cream-2); border:1px solid var(--line); border-radius:var(--radius);
+  padding:18px 20px; margin:14px 0;
+}
+.card.gold{border-color:var(--gold);}
+.read-toggle{
+  display:inline-flex; align-items:center; gap:8px; margin-top:18px;
+  font-size:13.5px; cursor:pointer; user-select:none; color:var(--navy);
+  background:none; border:1px solid var(--line); border-radius:20px; padding:7px 14px;
+}
+.read-toggle input{accent-color:var(--gold); width:15px; height:15px;}
+.read-toggle.done{border-color:var(--gold); background:var(--cream-2); color:var(--gold);}
+
+/* directives (Observă / Verifică ...) */
+.directives{display:grid; gap:6px; margin:14px 0;}
+.directive{font-size:15.5px;}
+.directive b{color:var(--gold);}
+
+/* ---------- FORM ELEMENTS ---------- */
+label.field-label{display:block; font-size:14.5px; font-weight:600; color:var(--navy); margin:16px 0 6px;}
+.hint{font-size:13px; font-style:italic; opacity:.7; margin:-2px 0 8px;}
+input[type=text], input[type=date], textarea{
+  width:100%; font-family:'Source Serif 4',Georgia,serif; font-size:15px; color:var(--ink);
+  background:var(--cream); border:1px solid var(--line); border-radius:10px; padding:11px 13px;
+  resize:vertical;
+}
+textarea{min-height:70px;}
+input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(196,146,42,.12);}
+
+.options{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 4px;}
+.opt{
+  position:relative;
+}
+.opt input{position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer;}
+.opt span{
+  display:inline-flex; align-items:center; gap:7px; font-size:14px;
+  background:var(--cream); border:1px solid var(--line); border-radius:20px;
+  padding:8px 14px; cursor:pointer; transition:.15s;
+}
+.opt span:before{content:"";width:9px;height:9px;border-radius:50%;border:1px solid var(--navy); opacity:.4;}
+.opt input[type=checkbox] + span:before{border-radius:3px;}
+.opt input:checked + span{background:var(--navy); border-color:var(--navy); color:var(--cream);}
+.opt input:checked + span:before{background:var(--gold); border-color:var(--gold); opacity:1;}
+
+.scale10{display:flex; gap:5px; flex-wrap:wrap;}
+.scale10 .opt span{
+  min-width:34px; justify-content:center; padding:8px 0; border-radius:8px; font-weight:600;
+}
+.scale10 .opt span:before{display:none;}
+
+/* ---------- COMPARE TABLE ---------- */
+.compare{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px;}
+.compare th{background:var(--navy); color:var(--cream); text-align:left; padding:10px 12px; font-weight:600;}
+.compare td{padding:10px 12px; border:1px solid var(--line); background:var(--cream);}
+.compare.cols3 th, .compare.cols3 td{width:33.33%;}
+
+/* ---------- SELF-ASSESSMENT ---------- */
+.indicator-row{
+  display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center;
+  padding:14px 0; border-bottom:1px dashed var(--line);
+}
+.indicator-row .idx-text{font-size:14.5px;}
+.indicator-row .idx-num{color:var(--gold); font-weight:700; margin-right:6px; font-family:'Cormorant Garamond',serif;}
+.score-panel{
+  background:var(--navy); color:var(--cream); border-radius:var(--radius); padding:22px;
+  display:flex; flex-wrap:wrap; gap:24px; justify-content:space-around; text-align:center; margin:20px 0;
+}
+.score-panel .num{font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--gold); font-weight:700;}
+.score-panel .lbl{font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.8;}
+.interpretation{display:grid; gap:10px; margin:16px 0;}
+.interp-band{border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:14.5px; opacity:.55;}
+.interp-band.active{border-color:var(--gold); background:var(--cream-2); opacity:1;}
+.interp-band b{color:var(--navy);}
+
+/* ---------- CHECKLIST ---------- */
+.checklist{display:grid; gap:9px; margin:14px 0;}
+.checklist label{display:flex; gap:10px; align-items:flex-start; font-size:15px; cursor:pointer;}
+.checklist input{margin-top:4px; width:16px; height:16px; accent-color:var(--gold);}
+
+/* ---------- TRANSITION ---------- */
+.transition-box{
+  background:var(--navy); color:var(--cream); border-radius:var(--radius);
+  padding:30px 26px; margin:22px 0; text-align:center; border:1px solid var(--gold);
+}
+.transition-box .to{font-size:12px; letter-spacing:.1em; text-transform:uppercase; opacity:.7;}
+.transition-box h3{color:var(--gold); font-size:26px; margin:8px 0 16px;}
+.transition-box p{text-align:left; font-size:15px; opacity:.92;}
+.step-formula{display:grid; gap:6px; margin-top:18px; text-align:left; font-size:14.5px;}
+.step-formula .row b{color:var(--gold); margin-right:6px;}
+
+/* ---------- FOOTER ---------- */
+.site-footer{background:var(--cream-2); padding:36px 0 60px; border-top:1px solid var(--line);}
+.site-footer .note-title{font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+.site-footer p{font-size:13.5px; opacity:.8; margin:8px 0;}
+.footer-word{
+  text-align:center; margin-top:26px; font-family:'Cormorant Garamond',serif;
+  color:var(--navy); letter-spacing:.14em; font-weight:700; font-size:13px;
+}
+.reset-btn{
+  display:block; margin:24px auto 0; background:none; border:1px solid var(--line); color:var(--navy);
+  opacity:.6; font-size:12.5px; padding:8px 16px; border-radius:20px; cursor:pointer; font-family:inherit;
+}
+.reset-btn:hover{opacity:1; border-color:var(--gold);}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width:640px){
+  .toc-list{grid-template-columns:1fr;}
+  .compare, .compare thead{display:block;}
+  .compare tr{display:block; margin-bottom:10px; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .compare th{display:none;}
+  .compare td{display:block; border:none; border-bottom:1px solid var(--line);}
+  .compare td:before{content:attr(data-label); display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--gold); font-weight:700; margin-bottom:3px;}
+  .compare td:last-child{border-bottom:none;}
+  .indicator-row{grid-template-columns:1fr;}
+  .cover{padding:48px 16px 36px;}
+  .cover h1{font-size:36px;}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark">Inner Human Architecture™</div>
+    <div class="crumbs">
+      <span>N1 · Prezență</span>
+      <span class="sep">·</span>
+      <span class="step-current">P02 · Prezența Mentală</span>
+      <span class="sep">→</span>
+      <span class="step-next">P03 · Prezența Emoțională</span>
+    </div>
+  </div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+  <div class="progress-label" id="progressLabel">0% complet</div>
+</header>
+
+<section class="cover" id="top">
+  <p class="kicker">Inner Human Architecture™</p>
+  <div class="rule"></div>
+  <p class="lvl">Individual</p>
+  <p class="step">Nivelul 1 · Prezență — P02</p>
+  <h1>Prezența<br>Mentală</h1>
+  <p class="tagline">„La ce răspunde mintea mea acum?”</p>
+  <p class="meta">Workbook de practică și integrare · ~60 min de citit · 3 zile de practică</p>
+  <p class="copyright">© 2026 Adrian Iacob · Toate drepturile rezervate</p>
+</section>
+
+<section class="toc-section container" id="cuprins">
+  <h2>Cuprinsul pasului</h2>
+  <p class="sub">Parcurge pașii în ordine. Citește lecția, lucrează exercițiile, ține jurnalul trei zile și încheie cu reflecția și autoevaluarea.</p>
+
+  <div class="toc-group">
+    <p class="toc-group-label">Înțelegere</p>
+    <ul class="toc-list">
+      <li><a href="#s01"><span class="toc-num">01</span> Prezentare generală</a></li>
+      <li><a href="#s02"><span class="toc-num">02</span> Lecția — Prezența Mentală</a></li>
+      <li><a href="#s03"><span class="toc-num">03</span> De la observarea atenției la prezența mentală</a></li>
+      <li><a href="#s04"><span class="toc-num">04</span> Ce este prezența mentală?</a></li>
+      <li><a href="#s05"><span class="toc-num">05</span> Ce este activitatea mentală?</a></li>
+      <li><a href="#s06"><span class="toc-num">06</span> Ce este absorbția mentală?</a></li>
+      <li><a href="#s07"><span class="toc-num">07</span> Mintea în afara prezentului și mintea prezentă</a></li>
+      <li><a href="#s08"><span class="toc-num">08</span> Al doilea pas al prezenței</a></li>
+      <li><a href="#s09"><span class="toc-num">09</span> Ce urmăresc în acest pas</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span> Bine ai venit în P02</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-group">
+    <p class="toc-group-label">Exerciții</p>
+    <ul class="toc-list">
+      <li><a href="#ex1"><span class="toc-num">E1</span> Ce se desfășoară în mintea mea acum?</a></li>
+      <li><a href="#ex2"><span class="toc-num">E2</span> Gândul și realitatea prezentă</a></li>
+      <li><a href="#ex3"><span class="toc-num">E3</span> Faptul prezent și construcția mentală</a></li>
+      <li><a href="#ex4"><span class="toc-num">E4</span> Observ gândul fără să devin gândul</a></li>
+      <li><a href="#ex5"><span class="toc-num">E5</span> Revenirea minții în prezent</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-group">
+    <p class="toc-group-label">Practică și jurnal</p>
+    <ul class="toc-list">
+      <li><a href="#s11"><span class="toc-num">11</span> Practica în viața reală</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span> Jurnal — Ziua 1</a></li>
+      <li><a href="#s13"><span class="toc-num">13</span> Jurnal — Ziua 2</a></li>
+      <li><a href="#s14"><span class="toc-num">14</span> Jurnal — Ziua 3</a></li>
+    </ul>
+  </div>
+
+  <div class="toc-group">
+    <p class="toc-group-label">Integrare</p>
+    <ul class="toc-list">
+      <li><a href="#s15"><span class="toc-num">15</span> Reflecție de integrare</a></li>
+      <li><a href="#s16"><span class="toc-num">16</span> Ce am observat despre mine în P02</a></li>
+      <li><a href="#s17"><span class="toc-num">17</span> Autoevaluare</a></li>
+      <li><a href="#s18"><span class="toc-num">18</span> Evaluare finală și interpretare</a></li>
+      <li><a href="#s19"><span class="toc-num">19</span> Finalizarea pasului</a></li>
+    </ul>
+  </div>
+</section>
+
+<main class="container">
+
+<section class="panel" id="s01" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">01</span><span class="eyebrow-label">Prezentare</span></div>
+  <h2>Prezentare generală</h2>
+  <p class="lede">N1 — Prezență | P02 — Prezența Mentală</p>
+
+  <h3>Obiectivul pasului</h3>
+  <p><b>Observarea activității mentale și orientarea minții către realitatea prezentă.</b></p>
+  <p>Să observ ce se desfășoară în mintea mea, să recunosc dacă aceasta răspunde trecutului, viitorului, unei interpretări sau situației prezente și să o readuc în contact cu ceea ce există concret acum.</p>
+
+  <h3>Durată</h3>
+  <p>Citire: 10 minute &nbsp;·&nbsp; Exerciții: 20–30 minute &nbsp;·&nbsp; Jurnal: 3 zile &nbsp;·&nbsp; Total: ~60 min / 3 zile</p>
+
+  <label class="field-label" for="numeMeu">Numele meu</label>
+  <input type="text" id="numeMeu" data-store>
+
+  <label class="field-label" for="dataInceperii">Data începerii</label>
+  <input type="date" id="dataInceperii" data-store>
+
+  <h3>Evaluare inițială</h3>
+  <p>Pe o scală de la 0 la 10: cât de conștient sunt de locul din care funcționează mintea mea în viața de zi cu zi?</p>
+  <div class="scale10" id="evalInitiala" data-store-group data-scale="0-10"></div>
+
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s02" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">02</span><span class="eyebrow-label">Lecție</span></div>
+  <h2>Lecția N1-P02 — Prezența Mentală</h2>
+  <p class="quote">„La ce răspunde mintea mea acum?”</p>
+
+  <h3>Competența dezvoltată</h3>
+  <p>La finalul acestui pas pot:</p>
+  <ul>
+    <li>observa activitatea mentală prezentă;</li>
+    <li>identifica gândul care ocupă atenția;</li>
+    <li>recunoaște dacă mintea mea funcționează în trecut, prezent sau viitor;</li>
+    <li>diferenția între un fapt prezent și o interpretare mentală;</li>
+    <li>identifica presupunerile, anticipările și scenariile construite de minte;</li>
+    <li>observa când sunt absorbit de propriile gânduri;</li>
+    <li>reveni la poziția de observator;</li>
+    <li>readuce mintea în contact cu ceea ce există concret acum;</li>
+    <li>identifica ce îmi cere situația prezentă;</li>
+    <li>folosi gândirea ca instrument al prezentului.</li>
+  </ul>
+  <p>Aceasta este a doua competență fundamentală din Nivelul 1 — Prezență.</p>
+
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s03" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">03</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>De la observarea atenției la prezența mentală</h2>
+  <p>În P01 ai învățat să observi unde se află atenția ta. Ai început să recunoști momentele în care atenția era prinsă în trecut, proiectată în viitor, orientată către exterior sau condusă de pilotul automat.</p>
+  <p>În P02 observarea merge mai departe. Nu mai observi doar unde se află atenția, ci și ce face mintea cu ea. Mintea poate:</p>
+  <ul>
+    <li>revedea trecutul;</li>
+    <li>anticipa viitorul;</li>
+    <li>interpreta ceea ce se întâmplă;</li>
+    <li>compara;</li>
+    <li>presupune;</li>
+    <li>construi scenarii;</li>
+    <li>repeta conversații;</li>
+    <li>planifica;</li>
+    <li>analiza;</li>
+    <li>încerca să rezolve mental situații care nu pot fi rezolvate acum.</li>
+  </ul>
+  <p>Această activitate nu este greșită. Mintea are funcția de a organiza, interpreta, anticipa și orienta experiența. Dificultatea apare atunci când activitatea mentală nu mai este observată și este confundată cu realitatea prezentă.</p>
+  <p>Prezența mentală începe atunci când observi:</p>
+  <p class="quote">„Există un gând, iar eu pot vedea că acest gând se desfășoară.”</p>
+  <p>Continuă atunci când întrebi:</p>
+  <p class="quote">„La ce răspunde mintea mea acum?”</p>
+  <p>Și se stabilizează atunci când verifici:</p>
+  <p class="quote">„Ce există concret în prezent?”</p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s04" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">04</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>Ce este prezența mentală?</h2>
+  <p class="lede">Capacitatea de a gândi din contact cu ceea ce există acum.</p>
+  <p>Prezența mentală nu înseamnă absența gândurilor. Nu înseamnă o minte goală. Nu înseamnă liniște permanentă. Nu înseamnă control total asupra procesului mental. Nu înseamnă să nu îți amintești trecutul. Nu înseamnă să nu planifici viitorul.</p>
+  <p>Prezența mentală înseamnă să observi activitatea minții și să recunoști dacă aceasta este în contact cu situația prezentă. O minte prezentă poate folosi trecutul fără să îl retrăiască. Poate pregăti viitorul fără să îl experimenteze ca și cum s-ar întâmpla deja. Poate analiza o situație fără să transforme interpretarea într-un fapt. Poate lua în considerare o posibilitate fără să o trateze drept certitudine. Poate răspunde la ceea ce există, nu doar la ceea ce presupune.</p>
+  <p><b>Trecutul este amintit acum. Viitorul este imaginat acum. Realitatea poate fi întâlnită numai acum.</b></p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s05" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">05</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>Ce este activitatea mentală?</h2>
+  <p class="lede">Procesul prin care mintea reprezintă, interpretează și organizează experiența.</p>
+  <p>Activitatea mentală include gândurile, imaginile interioare, amintirile, anticipările, comparațiile, interpretările, întrebările, concluziile și scenariile care apar în minte.</p>
+  <p>Uneori această activitate este clară. Alteori este rapidă, fragmentată sau greu de observat. Uneori apare ca o propoziție:</p>
+  <p class="quote">„Nu va merge.”</p>
+  <p>Alteori apare ca o imagine despre ce s-ar putea întâmpla. Alteori apare ca o conversație repetată în interior. Alteori apare ca o senzație de presiune mentală fără un gând formulat clar.</p>
+  <p>Indiferent de formă, activitatea mentală poate fi observată. Observarea nu oprește mintea. Observarea creează un spațiu între ceea ce mintea produce și modul în care răspunzi.</p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s06" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">06</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>Ce este absorbția mentală?</h2>
+  <p class="lede">Când gândul ocupă întregul câmp al atenției.</p>
+  <p>Absorbția mentală apare atunci când mintea este atât de implicată într-un gând, o amintire sau un scenariu încât nu mai observi procesul. Nu mai observi că gândești. Trăiești din interiorul gândului ca și cum acesta ar reprezenta în mod complet realitatea.</p>
+  <p>Un gând despre trecut poate deveni trecutul retrăit. Un gând despre viitor poate deveni o situație experimentată înainte să existe. O presupunere poate fi tratată ca un fapt. O interpretare poate fi confundată cu realitatea. O posibilitate poate fi trăită ca o certitudine.</p>
+  <p>În acel moment, mintea nu mai răspunde doar la ceea ce există. Răspunde și la ceea ce își amintește, presupune, anticipează sau construiește.</p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s07" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">07</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>Mintea în afara prezentului și mintea prezentă</h2>
+  <table class="compare cols2">
+    <thead><tr><th>Mintea orientată în afara prezentului</th><th>Mintea prezentă</th></tr></thead>
+    <tbody>
+      <tr><td data-label="În afara prezentului">Retrăiește ceea ce s-a întâmplat.</td><td data-label="Mintea prezentă">Observă ce există acum.</td></tr>
+      <tr><td data-label="În afara prezentului">Anticipează ceea ce s-ar putea întâmpla.</td><td data-label="Mintea prezentă">Lucrează cu informația disponibilă acum.</td></tr>
+      <tr><td data-label="În afara prezentului">Construiește scenarii.</td><td data-label="Mintea prezentă">Verifică realitatea prezentă.</td></tr>
+      <tr><td data-label="În afara prezentului">Repetă conversații trecute.</td><td data-label="Mintea prezentă">Observă conversația actuală.</td></tr>
+      <tr><td data-label="În afara prezentului">Răspunde unei presupuneri.</td><td data-label="Mintea prezentă">Răspunde situației concrete.</td></tr>
+      <tr><td data-label="În afara prezentului">Confundă interpretarea cu faptul.</td><td data-label="Mintea prezentă">Separă faptul de interpretare.</td></tr>
+      <tr><td data-label="În afara prezentului">Încearcă să rezolve mental viitorul.</td><td data-label="Mintea prezentă">Identifică ce poate face acum.</td></tr>
+      <tr><td data-label="În afara prezentului">Reacționează la o poveste interioară.</td><td data-label="Mintea prezentă">Verifică ce se întâmplă efectiv.</td></tr>
+    </tbody>
+  </table>
+  <p>Prezența mentală nu elimină trecutul sau viitorul. Le așază în relația corectă cu prezentul. Trecutul poate informa. Viitorul poate orienta. Dar acțiunea, alegerea și răspunsul au loc numai în prezent.</p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s08" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">08</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>Al doilea pas al prezenței</h2>
+  <p>În Inner Human Architecture™, primul pas este observarea atenției. Al doilea pas este observarea minții care folosește acea atenție.</p>
+  <p>În P01 ai întrebat:</p>
+  <p class="quote">„Unde este atenția mea?”</p>
+  <p>În P02 întrebi:</p>
+  <p class="quote">„La ce răspunde mintea mea acum?”</p>
+  <p>Răspunde la:</p>
+  <ul>
+    <li>ceea ce se întâmplă concret?</li>
+    <li>ceea ce s-a întâmplat?</li>
+    <li>ceea ce s-ar putea întâmpla?</li>
+    <li>ceea ce presupun?</li>
+    <li>ceea ce interpretez?</li>
+    <li>ceea ce îmi imaginez?</li>
+    <li>ceea ce îmi amintesc?</li>
+  </ul>
+  <p>Această diferențiere este esențială. Pentru că mintea poate produce o experiență intensă fără ca obiectul acelei experiențe să existe în prezent. Poți răspunde unei conversații care s-a încheiat. Poți reacționa unei situații care încă nu a avut loc. Poți lua o decizie pe baza unei presupuneri. Poți construi o întreagă reacție în jurul unei interpretări neverificate.</p>
+  <p>Prezența mentală nu cere eliminarea acestor procese. Cere să fie văzute.</p>
+  <h3>Formula structurală a acestui pas</h3>
+  <div class="formula-box">Observ gândul → identific unde mă duce → verific ce există acum → răspund prezentului</div>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s09" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">09</span><span class="eyebrow-label">Înțelegere</span></div>
+  <h2>Ce urmăresc în acest pas</h2>
+  <p>Pe parcursul acestui pas observ:</p>
+  <ul>
+    <li>ce se desfășoară în mintea mea;</li>
+    <li>ce gând ocupă cel mai mult atenția;</li>
+    <li>ce teme apar frecvent;</li>
+    <li>când mintea revine la trecut;</li>
+    <li>când mintea anticipează viitorul;</li>
+    <li>când interpretez o situație;</li>
+    <li>când construiesc o presupunere;</li>
+    <li>când tratez o posibilitate ca pe o certitudine;</li>
+    <li>când confund interpretarea cu faptul;</li>
+    <li>când sunt absorbit de un gând;</li>
+    <li>ce există concret în prezent;</li>
+    <li>ce îmi cere situația actuală;</li>
+    <li>ce pot face acum;</li>
+    <li>ce încerc să rezolv mental, deși nu poate fi rezolvat în prezent.</li>
+  </ul>
+  <p>Nu încerc să opresc mintea. Observ dacă mintea mea răspunde la ceea ce există acum.</p>
+
+  <h3>Locul acestui pas</h3>
+  <p>Acesta este al doilea pas al Nivelului 1 — Prezență. În Inner Human Architecture™, prezența mentală dezvoltă capacitatea de a observa activitatea minții și de a o readuce în contact cu realitatea prezentă.</p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s10" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">10</span><span class="eyebrow-label">Orientare</span></div>
+  <h2>Bine ai venit în P02</h2>
+  <h3>Scop unic</h3>
+  <p>Acest workbook are un singur scop:</p>
+  <p class="card gold"><b>Să observi ce se desfășoară în mintea ta și să recunoști dacă mintea răspunde la ceea ce există acum sau la ceea ce își amintește, presupune, interpretează ori anticipează.</b></p>
+  <div class="directives">
+    <p class="directive"><b>Observă.</b> Nu opri.</p>
+    <p class="directive"><b>Verifică.</b> Nu presupune.</p>
+    <p class="directive"><b>Diferențiază.</b> Nu confunda.</p>
+    <p class="directive"><b>Revino.</b> Nu forța.</p>
+  </div>
+  <p>Scrie primul răspuns care apare. Nu căuta răspunsul perfect. Jurnalul se completează zilnic, câte 2–3 minute. Dacă nu știi ce să scrii, scrie: <i>Nu știu încă.</i></p>
+
+  <h3>Exercițiul de pornire — 30 de secunde</h3>
+  <p class="hint">Oprește-te. Lasă mintea să fie exact așa cum este.</p>
+  <label class="field-label">La ce răspunde mintea mea acum?</label>
+  <div class="options" data-store-group data-name="pornire" data-type="radio">
+    <label class="opt"><input type="radio" name="pornire" value="La ceea ce se întâmplă acum"><span>La ceea ce se întâmplă acum</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="La ceva din trecut"><span>La ceva din trecut</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="La ceva posibil în viitor"><span>La ceva posibil în viitor</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="La o presupunere"><span>La o presupunere</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="La o interpretare"><span>La o interpretare</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="La un scenariu"><span>La un scenariu</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="La mai multe lucruri"><span>La mai multe lucruri</span></label>
+    <label class="opt"><input type="radio" name="pornire" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="ex1" data-exercise>
+  <div class="panel-eyebrow"><span class="badge ex">E1</span><span class="eyebrow-label">Exercițiu</span></div>
+  <h2>Ce se desfășoară în mintea mea acum?</h2>
+  <h3>Primul act de prezență mentală</h3>
+  <p>Observă activitatea minții exact acum. Nu încerca să o oprești. Nu încerca să creezi liniște. Nu schimba gândul. Nu îl transforma într-o problemă. Observă că activitatea mentală există.</p>
+
+  <label class="field-label">Ce gând este cel mai vizibil acum?</label>
+  <textarea data-store data-required></textarea>
+
+  <label class="field-label">Ce temă ocupă cel mai mult spațiu mental?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Acest gând se referă la:</label>
+  <div class="options" data-store-group data-name="ex1-refera" data-type="radio">
+    <label class="opt"><input type="radio" name="ex1-refera" value="Trecut"><span>Trecut</span></label>
+    <label class="opt"><input type="radio" name="ex1-refera" value="Prezent"><span>Prezent</span></label>
+    <label class="opt"><input type="radio" name="ex1-refera" value="Viitor"><span>Viitor</span></label>
+    <label class="opt"><input type="radio" name="ex1-refera" value="O combinație"><span>O combinație</span></label>
+    <label class="opt"><input type="radio" name="ex1-refera" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+
+  <label class="field-label">Ce face mintea mea cu acest gând?</label>
+  <div class="options" data-store-group data-name="ex1-face" data-type="checkbox">
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Repetă"><span>Repetă</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Analizează"><span>Analizează</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Compară"><span>Compară</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Anticipează"><span>Anticipează</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Interpretează"><span>Interpretează</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Planifică"><span>Planifică</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Presupune"><span>Presupune</span></label>
+    <label class="opt"><input type="checkbox" name="ex1-face" value="Construiește scenarii"><span>Construiește scenarii</span></label>
+  </div>
+  <label class="field-label">Altceva</label>
+  <input type="text" data-store>
+
+  <label class="field-label">Gândul descrie:</label>
+  <div class="options" data-store-group data-name="ex1-descrie" data-type="radio">
+    <label class="opt"><input type="radio" name="ex1-descrie" value="Un fapt observabil"><span>Un fapt observabil</span></label>
+    <label class="opt"><input type="radio" name="ex1-descrie" value="O interpretare"><span>O interpretare</span></label>
+    <label class="opt"><input type="radio" name="ex1-descrie" value="O presupunere"><span>O presupunere</span></label>
+    <label class="opt"><input type="radio" name="ex1-descrie" value="O posibilitate"><span>O posibilitate</span></label>
+    <label class="opt"><input type="radio" name="ex1-descrie" value="O amintire"><span>O amintire</span></label>
+    <label class="opt"><input type="radio" name="ex1-descrie" value="Un scenariu"><span>Un scenariu</span></label>
+    <label class="opt"><input type="radio" name="ex1-descrie" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+
+  <label class="field-label">Ce există concret în prezent?</label>
+  <textarea data-store data-required></textarea>
+
+  <label class="field-label">Ce observ pentru prima dată despre activitatea minții mele?</label>
+  <textarea data-store></textarea>
+</section>
+
+<section class="panel" id="ex2" data-exercise>
+  <div class="panel-eyebrow"><span class="badge ex">E2</span><span class="eyebrow-label">Exercițiu</span></div>
+  <h2>Gândul și realitatea prezentă</h2>
+  <table class="compare cols2">
+    <thead><tr><th>Gând trăit ca realitate</th><th>Gând observat</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Trăit ca realitate">Gândul ocupă întreaga atenție.</td><td data-label="Observat">Observ că un gând este prezent.</td></tr>
+      <tr><td data-label="Trăit ca realitate">Interpretarea pare identică cu realitatea.</td><td data-label="Observat">Recunosc diferența dintre fapt și interpretare.</td></tr>
+      <tr><td data-label="Trăit ca realitate">Reacția apare înaintea observării.</td><td data-label="Observat">Observ gândul înainte să reacționez.</td></tr>
+      <tr><td data-label="Trăit ca realitate">Posibilitatea este tratată ca certitudine.</td><td data-label="Observat">Recunosc că este doar o posibilitate.</td></tr>
+      <tr><td data-label="Trăit ca realitate">Presupunerea este tratată ca fapt.</td><td data-label="Observat">Verific ce știu și ce presupun.</td></tr>
+      <tr><td data-label="Trăit ca realitate">„Așa este.”</td><td data-label="Observat">„Observ că mintea mea spune că așa este.”</td></tr>
+      <tr><td data-label="Trăit ca realitate">Mintea răspunde unei povești interioare.</td><td data-label="Observat">Mintea verifică ceea ce există acum.</td></tr>
+    </tbody>
+  </table>
+
+  <label class="field-label">O situație recentă în care am trăit un gând ca și cum ar fi reprezentat întreaga realitate</label>
+  <textarea data-store data-required></textarea>
+
+  <label class="field-label">Ce s-a întâmplat concret în acea situație?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce a adăugat mintea mea?</label>
+  <div class="options" data-store-group data-name="ex2-adaugat" data-type="checkbox">
+    <label class="opt"><input type="checkbox" name="ex2-adaugat" value="Interpretare"><span>Interpretare</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-adaugat" value="Presupunere"><span>Presupunere</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-adaugat" value="Anticipare"><span>Anticipare</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-adaugat" value="Comparație"><span>Comparație</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-adaugat" value="Scenariu"><span>Scenariu</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-adaugat" value="Concluzie"><span>Concluzie</span></label>
+  </div>
+  <label class="field-label">Altceva</label>
+  <input type="text" data-store>
+
+  <label class="field-label">Descrie ce a adăugat mintea</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce era prezent în realitate și ce exista doar în mintea mea?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Un moment recent în care am observat un gând fără să îl urmez imediat</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce a fost diferit în acel moment?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Mintea mea devine cel mai ușor absorbită când:</label>
+  <div class="options" data-store-group data-name="ex2-absorbita" data-type="checkbox">
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Sunt obosit"><span>Sunt obosit</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Sunt grăbit"><span>Sunt grăbit</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Aștept un răspuns"><span>Aștept un răspuns</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Mă confrunt cu incertitudine"><span>Mă confrunt cu incertitudine</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Îmi amintesc o situație"><span>Îmi amintesc o situație</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Anticipez ceva"><span>Anticipez ceva</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Interpretez comportamentul cuiva"><span>Interpretez comportamentul cuiva</span></label>
+    <label class="opt"><input type="checkbox" name="ex2-absorbita" value="Încerc să controlez un rezultat"><span>Încerc să controlez un rezultat</span></label>
+  </div>
+  <label class="field-label">Altceva</label>
+  <input type="text" data-store>
+</section>
+
+<section class="panel" id="ex3" data-exercise>
+  <div class="panel-eyebrow"><span class="badge ex">E3</span><span class="eyebrow-label">Exercițiu</span></div>
+  <h2>Faptul prezent și construcția mentală</h2>
+  <h3>Ce există și ce adaugă mintea?</h3>
+  <p>Alege o situație care îți ocupă mintea în acest moment. Poate fi o conversație, o decizie, o problemă, o relație, o așteptare sau un eveniment viitor.</p>
+
+  <label class="field-label">Situația care îmi ocupă mintea</label>
+  <textarea data-store data-required></textarea>
+
+  <label class="field-label">Ce există concret acum?</label>
+  <p class="hint">Scrie numai ceea ce poate fi observat, confirmat sau verificat în acest moment.</p>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce adaugă mintea mea?</label>
+  <div class="options" data-store-group data-name="ex3-adauga" data-type="checkbox">
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Amintiri"><span>Amintiri</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Presupuneri"><span>Presupuneri</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Interpretări"><span>Interpretări</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Scenarii"><span>Scenarii</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Anticipări"><span>Anticipări</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Concluzii"><span>Concluzii</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Conversații imaginare"><span>Conversații imaginare</span></label>
+    <label class="opt"><input type="checkbox" name="ex3-adauga" value="Comparații"><span>Comparații</span></label>
+  </div>
+  <label class="field-label">Altceva</label>
+  <input type="text" data-store>
+
+  <label class="field-label">Ce nu se întâmplă acum, dar mintea mea tratează ca și cum s-ar întâmpla?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce știu în acest moment?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce presupun?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce nu pot confirma acum?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce îmi cere situația prezentă, concret?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Există o acțiune posibilă acum?</label>
+  <div class="options" data-store-group data-name="ex3-actiune" data-type="radio">
+    <label class="opt"><input type="radio" name="ex3-actiune" value="Da"><span>Da</span></label>
+    <label class="opt"><input type="radio" name="ex3-actiune" value="Nu"><span>Nu</span></label>
+    <label class="opt"><input type="radio" name="ex3-actiune" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+
+  <label class="field-label">Dacă da, care este?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Dacă nu există o acțiune posibilă acum, ce încerc să rezolv doar mental?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Cum arată situația fără scenariul adăugat de mintea mea?</label>
+  <textarea data-store></textarea>
+</section>
+
+<section class="panel" id="ex4" data-exercise>
+  <div class="panel-eyebrow"><span class="badge ex">E4</span><span class="eyebrow-label">Exercițiu</span></div>
+  <h2>Observ gândul fără să devin gândul</h2>
+  <h3>Rolul observatorului</h3>
+  <div class="formula-box">Identificare → Observare → Verificare</div>
+  <p>În acest exercițiu nu negi gândul. Nu îl înlocuiești. Nu îl corectezi. Înveți să îl observi și să verifici relația lui cu realitatea prezentă.</p>
+
+  <table class="compare cols3">
+    <thead><tr><th>Identificare cu gândul</th><th>Observarea gândului</th><th>Verificarea prezentului</th></tr></thead>
+    <tbody>
+      <tr><td data-label="Identificare">„Nu sunt pregătit.”</td><td data-label="Observare">„Observ un gând care spune că nu sunt pregătit.”</td><td data-label="Verificare">„Ce arată concret nivelul meu actual de pregătire?”</td></tr>
+      <tr><td data-label="Identificare">„Totul va merge prost.”</td><td data-label="Observare">„Observ că mintea construiește un scenariu negativ.”</td><td data-label="Verificare">„Ce se întâmplă efectiv acum?”</td></tr>
+      <tr><td data-label="Identificare">„Trebuia să fac altfel.”</td><td data-label="Observare">„Observ că mintea revine la trecut.”</td><td data-label="Verificare">„Ce pot face acum cu ceea ce știu?”</td></tr>
+      <tr><td data-label="Identificare">„Sigur gândește ceva rău despre mine.”</td><td data-label="Observare">„Observ o presupunere despre celălalt.”</td><td data-label="Verificare">„Ce informație concretă am?”</td></tr>
+      <tr><td data-label="Identificare">„Nu voi putea rezolva situația.”</td><td data-label="Observare">„Observ o anticipare.”</td><td data-label="Verificare">„Care este următorul pas posibil acum?”</td></tr>
+      <tr><td data-label="Identificare">„Nu pot opri gândurile.”</td><td data-label="Observare">„Observ activitate mentală intensă.”</td><td data-label="Verificare">„Ce este prezent în jurul meu acum?”</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Trei gânduri pe care le observ acum</h3>
+  <label class="field-label">1. Observ un gând care spune</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Acest gând răspunde la:</label>
+  <div class="options" data-store-group data-name="ex4-refera1" data-type="radio">
+    <label class="opt"><input type="radio" name="ex4-refera1" value="Trecut"><span>Trecut</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera1" value="Prezent"><span>Prezent</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera1" value="Viitor"><span>Viitor</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera1" value="Presupunere"><span>Presupunere</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera1" value="Interpretare"><span>Interpretare</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera1" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+  <label class="field-label">Ce există concret acum?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">2. Observ un gând care spune</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Acest gând răspunde la:</label>
+  <div class="options" data-store-group data-name="ex4-refera2" data-type="radio">
+    <label class="opt"><input type="radio" name="ex4-refera2" value="Trecut"><span>Trecut</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera2" value="Prezent"><span>Prezent</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera2" value="Viitor"><span>Viitor</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera2" value="Presupunere"><span>Presupunere</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera2" value="Interpretare"><span>Interpretare</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera2" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+  <label class="field-label">Ce există concret acum?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">3. Observ un gând care spune</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Acest gând răspunde la:</label>
+  <div class="options" data-store-group data-name="ex4-refera3" data-type="radio">
+    <label class="opt"><input type="radio" name="ex4-refera3" value="Trecut"><span>Trecut</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera3" value="Prezent"><span>Prezent</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera3" value="Viitor"><span>Viitor</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera3" value="Presupunere"><span>Presupunere</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera3" value="Interpretare"><span>Interpretare</span></label>
+    <label class="opt"><input type="radio" name="ex4-refera3" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+  <label class="field-label">Ce există concret acum?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Ce este diferit când spun „observ un gând” în loc de „așa este”?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Care gând pare cel mai greu de observat fără să mă identific cu el?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce devine vizibil când verific prezentul?</label>
+  <textarea data-store></textarea>
+</section>
+
+<section class="panel" id="ex5" data-exercise>
+  <div class="panel-eyebrow"><span class="badge ex">E5</span><span class="eyebrow-label">Exercițiu</span></div>
+  <h2>Revenirea minții în prezent</h2>
+  <h3>Învățând să gândești din contact cu realitatea prezentă</h3>
+  <h4>Pașii revenirii</h4>
+  <ul>
+    <li><b>Observ:</b> există activitate mentală.</li>
+    <li><b>Identific:</b> trecut, viitor, interpretare, presupunere, comparație sau scenariu.</li>
+    <li><b>Diferențiez:</b> acesta este un proces mental, nu întreaga realitate.</li>
+    <li><b>Verific:</b> ce există concret acum?</li>
+    <li><b>Revin:</b> observ corpul, respirația, sunetele și mediul prezent.</li>
+    <li><b>Răspund:</b> ce necesită situația actuală din partea mea?</li>
+  </ul>
+  <h4>Formula scurtă</h4>
+  <p class="quote">„Acesta este un gând. Ce există acum?”</p>
+  <h4>Formula completă</h4>
+  <p class="quote">„Observ că mintea mea produce acest gând. Verific ce este fapt, ce este interpretare și ce îmi cere prezentul.”</p>
+
+  <label class="field-label">Când îmi este cel mai greu să readuc mintea în prezent?</label>
+  <textarea data-store data-required></textarea>
+  <label class="field-label">Ce tip de gând mă absoarbe cel mai repede?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce încearcă mintea mea să rezolve înainte ca situația să existe?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Notează un moment în care ai revenit din absorbția mentală la realitatea prezentă</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce exista concret în acel moment?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce ai observat după revenire?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce acțiune sau decizie a devenit posibilă după ce ai revenit la prezent?</label>
+  <textarea data-store></textarea>
+</section>
+
+<section class="panel" id="s11" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">11</span><span class="eyebrow-label">Practică</span></div>
+  <h2>Practica în viața reală — 3 zile</h2>
+  <p>Alege de cel puțin 3 ori pe zi un moment obișnuit. Scopul este să transferi prezența mentală din workbook în viața reală.</p>
+  <label class="field-label">Poți practica:</label>
+  <div class="options" data-store-group data-name="practica-momente" data-type="checkbox">
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când te trezești"><span>Când te trezești</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când privești telefonul"><span>Când privești telefonul</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când aștepți"><span>Când aștepți</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când lucrezi"><span>Când lucrezi</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când mergi"><span>Când mergi</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când mănânci"><span>Când mănânci</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Înaintea unei conversații"><span>Înaintea unei conversații</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="După o conversație"><span>După o conversație</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Când apare o preocupare"><span>Când apare o preocupare</span></label>
+    <label class="opt"><input type="checkbox" name="practica-momente" value="Înainte de somn"><span>Înainte de somn</span></label>
+  </div>
+  <p>Oprește-te 30 de secunde și întreabă-te:</p>
+  <p class="quote">„La ce răspunde mintea mea acum?”</p>
+  <p>Apoi observă:</p>
+  <ul>
+    <li>Ce gând este prezent?</li>
+    <li>Gândul se referă la trecut, prezent sau viitor?</li>
+    <li>Este fapt, interpretare, presupunere sau scenariu?</li>
+    <li>Ce există concret în acest moment?</li>
+    <li>Ce îmi cere prezentul acum?</li>
+  </ul>
+  <p>Nu opri gândul. Nu îl corecta. Nu încerca să îl înlocuiești. Observă ce face mintea. Verifică prezentul. Notează experiența în jurnal.</p>
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s12" data-journal>
+  <div class="panel-eyebrow"><span class="badge">12</span><span class="eyebrow-label">Jurnal</span></div>
+  <h2>Jurnal de observare — Ziua 1</h2>
+  <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
+  <label class="field-label">Data</label>
+  <input type="date" data-store>
+
+  <label class="field-label">Ce a ocupat cel mai mult mintea mea astăzi?</label>
+  <textarea data-store data-required></textarea>
+
+  <label class="field-label">Acel lucru se întâmpla în prezent sau era reprezentat mental?</label>
+  <div class="options" data-store-group data-name="z1-reprezentat" data-type="radio">
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Se întâmpla în prezent"><span>Se întâmpla în prezent</span></label>
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Era o amintire"><span>Era o amintire</span></label>
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Era o anticipare"><span>Era o anticipare</span></label>
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Era o interpretare"><span>Era o interpretare</span></label>
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Era o presupunere"><span>Era o presupunere</span></label>
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Era un scenariu"><span>Era un scenariu</span></label>
+    <label class="opt"><input type="radio" name="z1-reprezentat" value="Nu știu încă"><span>Nu știu încă</span></label>
+  </div>
+
+  <label class="field-label">Ce exista concret în acel moment?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce a adăugat mintea mea?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Am fost mai mult:</label>
+  <div class="options" data-store-group data-name="z1-fost" data-type="radio">
+    <label class="opt"><input type="radio" name="z1-fost" value="Absorbit de gând"><span>Absorbit de gând</span></label>
+    <label class="opt"><input type="radio" name="z1-fost" value="Conștient de gând"><span>Conștient de gând</span></label>
+    <label class="opt"><input type="radio" name="z1-fost" value="În contact cu prezentul"><span>În contact cu prezentul</span></label>
+    <label class="opt"><input type="radio" name="z1-fost" value="Mixt"><span>Mixt</span></label>
+  </div>
+</section>
+
+<section class="panel" id="s13" data-journal>
+  <div class="panel-eyebrow"><span class="badge">13</span><span class="eyebrow-label">Jurnal</span></div>
+  <h2>Jurnal de observare — Ziua 2</h2>
+  <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
+  <label class="field-label">Data</label>
+  <input type="date" data-store>
+
+  <label class="field-label">În ce situație am confundat cel mai clar un gând cu realitatea prezentă?</label>
+  <textarea data-store data-required></textarea>
+  <label class="field-label">Ce era fapt?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce era interpretare, presupunere sau scenariu?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce nu puteam confirma în acel moment?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce îmi cerea situația prezentă, concret?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Am fost mai mult:</label>
+  <div class="options" data-store-group data-name="z2-fost" data-type="radio">
+    <label class="opt"><input type="radio" name="z2-fost" value="Absorbit de gând"><span>Absorbit de gând</span></label>
+    <label class="opt"><input type="radio" name="z2-fost" value="Conștient de gând"><span>Conștient de gând</span></label>
+    <label class="opt"><input type="radio" name="z2-fost" value="În contact cu prezentul"><span>În contact cu prezentul</span></label>
+    <label class="opt"><input type="radio" name="z2-fost" value="Mixt"><span>Mixt</span></label>
+  </div>
+</section>
+
+<section class="panel" id="s14" data-journal>
+  <div class="panel-eyebrow"><span class="badge">14</span><span class="eyebrow-label">Jurnal</span></div>
+  <h2>Jurnal de observare — Ziua 3</h2>
+  <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
+  <label class="field-label">Data</label>
+  <input type="date" data-store>
+
+  <label class="field-label">În ce moment am reușit să gândesc din prezent?</label>
+  <textarea data-store data-required></textarea>
+  <label class="field-label">Ce informație era disponibilă concret?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce gând am observat fără să îl urmez imediat?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce decizie sau acțiune a devenit posibilă după revenire?</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Ce a fost diferit după ce mintea a revenit în contact cu prezentul?</label>
+  <textarea data-store></textarea>
+
+  <label class="field-label">Am fost mai mult:</label>
+  <div class="options" data-store-group data-name="z3-fost" data-type="radio">
+    <label class="opt"><input type="radio" name="z3-fost" value="Absorbit de gând"><span>Absorbit de gând</span></label>
+    <label class="opt"><input type="radio" name="z3-fost" value="Conștient de gând"><span>Conștient de gând</span></label>
+    <label class="opt"><input type="radio" name="z3-fost" value="În contact cu prezentul"><span>În contact cu prezentul</span></label>
+    <label class="opt"><input type="radio" name="z3-fost" value="Mixt"><span>Mixt</span></label>
+  </div>
+</section>
+
+<section class="panel" id="s15" data-reflection>
+  <div class="panel-eyebrow"><span class="badge">15</span><span class="eyebrow-label">Integrare</span></div>
+  <h2>Reflecție de integrare</h2>
+  <p>Ce devine vizibil după 3 zile? Nu căuta o concluzie perfectă. Notează ce a devenit observabil.</p>
+
+  <label class="field-label">Ce am observat în general despre activitatea minții mele?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Mintea mea funcționează cel mai des în trecut, prezent sau viitor?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Ce teme apar cel mai frecvent în gândurile mele?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Ce tip de gând mă absoarbe cel mai repede?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">În ce situații confund cel mai ușor interpretarea cu faptul?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Ce presupuneri tratez frecvent ca și cum ar fi certitudini?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Ce încerc să rezolv mental înainte să existe informațiile necesare?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Ce se schimbă atunci când verific ce există concret acum?</label>
+  <textarea data-store data-required-reflect></textarea>
+  <label class="field-label">Cum arată mintea mea atunci când este prezentă?</label>
+  <textarea data-store data-required-reflect></textarea>
+</section>
+
+<section class="panel" id="s16" data-observat>
+  <div class="panel-eyebrow"><span class="badge">16</span><span class="eyebrow-label">Integrare</span></div>
+  <h2>Ce am observat despre mine în P02</h2>
+
+  <label class="field-label">Mintea mea se ocupă cel mai des cu:</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Gândurile mele dominante se referă la:</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Devin absorbit mental cel mai ușor când:</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Confund interpretarea cu faptul mai ales când:</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Revin la prezent cel mai ușor când:</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Când sunt prezent mental, observ că:</label>
+  <textarea data-store></textarea>
+  <label class="field-label">Cel mai important lucru descoperit în P02:</label>
+  <textarea data-store></textarea>
+
+  <div class="card">
+    <p style="margin:0">Observ activitatea minții mele.<br>Diferențiez între fapt și interpretare.<br>Verific ce există concret acum.<br>Îmi readuc mintea în contact cu prezentul.</p>
+  </div>
+
+  <label class="field-label">Semnătură</label>
+  <input type="text" data-store>
+  <label class="field-label">Data</label>
+  <input type="date" data-store>
+</section>
+
+<section class="panel" id="s17" data-autoeval>
+  <div class="panel-eyebrow"><span class="badge">17</span><span class="eyebrow-label">Integrare</span></div>
+  <h2>Autoevaluare — P02 — Prezența Mentală</h2>
+  <p class="hint">0 = Deloc &nbsp;·&nbsp; 5 = Uneori &nbsp;·&nbsp; 10 = În mod constant</p>
+
+  <div id="indicatorList"></div>
+
+  <div class="score-panel">
+    <div><div class="num" id="scoreTotal">0</div><div class="lbl">Scor total / 100</div></div>
+    <div><div class="num" id="scoreAvg">0,0</div><div class="lbl">Scor mediu / 10</div></div>
+  </div>
+
+  <div class="interpretation" id="interpretation">
+    <div class="interp-band" data-band="lo"><b>0–40:</b> Ai început să observi activitatea minții și modul în care aceasta se îndepărtează de prezent.</div>
+    <div class="interp-band" data-band="mid"><b>41–70:</b> Recunoști din ce în ce mai clar gândurile, interpretările și scenariile mentale.</div>
+    <div class="interp-band" data-band="hi"><b>71–100:</b> Ai dezvoltat o capacitate solidă de observare a minții și de revenire la realitatea prezentă.</div>
+  </div>
+</section>
+
+<section class="panel" id="s18" data-read-section>
+  <div class="panel-eyebrow"><span class="badge">18</span><span class="eyebrow-label">Integrare</span></div>
+  <h2>Evaluare finală și interpretare</h2>
+  <p>Pe o scală de la 0 la 10: cât de conștient sunt acum de locul din care funcționează mintea mea?</p>
+  <div class="scale10" id="evalFinala" data-store-group data-scale="0-10"></div>
+
+  <p style="margin-top:18px;">Nota mea de la evaluarea inițială: <b id="initialScoreEcho">—</b> / 10. Ce diferență observ față de acea notă?</p>
+  <textarea data-store></textarea>
+
+  <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
+</section>
+
+<section class="panel" id="s19">
+  <div class="panel-eyebrow"><span class="badge">19</span><span class="eyebrow-label">Finalizare</span></div>
+  <h2>Finalizarea pasului</h2>
+  <p class="hint">Accesul la pasul următor nu depinde de scor. Accesul depinde de completarea activităților și de cel puțin 6 opriri conștiente în 3 zile.</p>
+
+  <div class="checklist" id="finalChecklist">
+    <label><input type="checkbox" data-store data-final-item> Am parcurs lecția.</label>
+    <label><input type="checkbox" data-store data-final-item> Am completat exercițiile.</label>
+    <label><input type="checkbox" data-store data-final-item> Am completat jurnalul de observare.</label>
+    <label><input type="checkbox" data-store data-final-item> Am completat reflecția de integrare.</label>
+    <label><input type="checkbox" data-store data-final-item> Am completat autoevaluarea.</label>
+    <label><input type="checkbox" data-store data-final-item> Am făcut cel puțin 6 opriri conștiente pentru observarea minții.</label>
+    <label><input type="checkbox" data-store data-final-item> Am verificat în mod conștient ce există concret în prezent.</label>
+  </div>
+
+  <div class="transition-box">
+    <p class="to">După completare, poți continua către</p>
+    <h3>N1-P03 — Prezența Emoțională</h3>
+    <p>În P01 ai învățat să observi unde este atenția ta.</p>
+    <p>În P02 ai observat activitatea minții, ai diferențiat între fapt și interpretare și ai început să readuci gândirea în contact cu ceea ce există concret acum.</p>
+    <p>În P03 vei învăța să observi ceea ce se desfășoară în planul tău emoțional și să rămâi prezent în contact cu emoția, fără să fii condus automat de aceasta.</p>
+    <div class="step-formula">
+      <div class="row"><b>P01:</b> Unde este atenția mea?</div>
+      <div class="row"><b>P02:</b> La ce răspunde mintea mea acum?</div>
+      <div class="row"><b>P03:</b> Ce se desfășoară în planul meu emoțional acum?</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="note-title">Material educațional</p>
+    <p>Acest workbook este un instrument educațional de auto-observare ghidată. Nu oferă evaluare clinică, diagnostic, tratament sau recomandări medicale. Dacă treci prin dificultăți intense sau situații care îți afectează siguranța, caută sprijin calificat.</p>
+    <p style="margin-top:16px;">© 2026 Adrian Iacob. Toate drepturile rezervate. Acest material este destinat exclusiv utilizării personale a participantului. Copierea, distribuirea, reproducerea, traducerea, modificarea sau utilizarea comercială a acestui material fără acordul scris al autorului este interzisă.</p>
+    <button class="reset-btn" id="resetBtn" type="button">Resetare progres</button>
+    <p class="footer-word">INNER HUMAN ARCHITECTURE™</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var NS = "n1p2_";
+var $ = function(s,ctx){ return (ctx||document).querySelector(s); };
+var $$ = function(s,ctx){ return Array.prototype.slice.call((ctx||document).querySelectorAll(s)); };
+
+/* ---------- build 0-10 scale widgets ---------- */
+function buildScale(container){
+  var name = container.id;
+  for(var i=0;i<=10;i++){
+    var label = document.createElement('label');
+    label.className = 'opt';
+    label.innerHTML = '<input type="radio" name="'+name+'" value="'+i+'"><span>'+i+'</span>';
+    container.appendChild(label);
+  }
+}
+$$('.scale10[data-store-group]').forEach(buildScale);
+
+/* ---------- indicators (autoevaluare) ---------- */
+var INDICATORS = [
+  "Observ ce gând este prezent în acest moment.",
+  "Îmi dau seama când sunt absorbit de un gând.",
+  "Recunosc dacă mintea mea funcționează în trecut, prezent sau viitor.",
+  "Pot diferenția între un fapt și interpretarea mea mentală.",
+  "Recunosc presupunerile și scenariile construite de mintea mea.",
+  "Pot observa un gând fără să încerc imediat să îl schimb.",
+  "Pot formula „observ un gând” în loc să tratez gândul drept certitudine.",
+  "Verific ce există concret în prezent înainte să reacționez.",
+  "Pot identifica ce îmi cere situația prezentă.",
+  "Revin mai ușor la prezent după absorbția mentală."
+];
+var indicatorWrap = $('#indicatorList');
+INDICATORS.forEach(function(text, i){
+  var row = document.createElement('div');
+  row.className = 'indicator-row';
+  var name = 'indicator-' + i;
+  var opts = '';
+  for(var v=0; v<=10; v++){
+    opts += '<label class="opt"><input type="radio" name="'+name+'" value="'+v+'" data-indicator><span>'+v+'</span></label>';
+  }
+  row.innerHTML = '<div class="idx-text"><span class="idx-num">'+(i+1)+'.</span>'+text+'</div><div class="scale10">'+opts+'</div>';
+  indicatorWrap.appendChild(row);
+});
+
+/* ---------- localStorage: text/date/textarea ---------- */
+function keyFor(el, idx){
+  if(el.id) return NS + 'f_' + el.id;
+  // fallback: index-based key using position in a data-store collection
+  return NS + 'f_idx_' + idx;
+}
+var storeEls = $$('[data-store]');
+storeEls.forEach(function(el, idx){
+  if(el.type === 'checkbox') return; // handled separately if needed
+  var k = keyFor(el, idx);
+  el._n1p2key = k;
+  var saved = localStorage.getItem(k);
+  if(saved !== null) el.value = saved;
+  el.addEventListener('input', function(){
+    localStorage.setItem(k, el.value);
+    updateAll();
+  });
+});
+
+/* final checklist checkboxes */
+$$('[data-final-item]').forEach(function(el, idx){
+  var k = NS + 'final_' + idx;
+  el._n1p2key = k;
+  var saved = localStorage.getItem(k);
+  if(saved === '1') el.checked = true;
+  el.addEventListener('change', function(){
+    localStorage.setItem(k, el.checked ? '1':'0');
+    updateAll();
+  });
+});
+
+/* ---------- radio / checkbox groups (options) ---------- */
+$$('.options[data-store-group]').forEach(function(group, gIdx){
+  var name = group.getAttribute('data-name') || group.id;
+  var type = group.getAttribute('data-type') || 'radio';
+  var k = NS + 'grp_' + (group.id || name || gIdx);
+  var inputs = $$('input', group);
+  var saved = localStorage.getItem(k);
+  var savedArr = saved ? JSON.parse(saved) : [];
+  inputs.forEach(function(inp){
+    if(type === 'checkbox'){
+      if(savedArr.indexOf(inp.value) !== -1) inp.checked = true;
+    } else {
+      if(savedArr === inp.value) inp.checked = true;
+    }
+    inp.addEventListener('change', function(){
+      if(type === 'checkbox'){
+        var vals = inputs.filter(function(i){return i.checked;}).map(function(i){return i.value;});
+        localStorage.setItem(k, JSON.stringify(vals));
+      } else {
+        localStorage.setItem(k, JSON.stringify(inp.value));
+      }
+      updateAll();
+    });
+  });
+});
+
+/* scale10 groups without explicit data-name (evalInitiala / evalFinala use container id as group) */
+$$('.scale10[data-store-group]').forEach(function(container){
+  var k = NS + 'scale_' + container.id;
+  var inputs = $$('input', container);
+  var saved = localStorage.getItem(k);
+  inputs.forEach(function(inp){
+    if(saved !== null && saved === inp.value) inp.checked = true;
+    inp.addEventListener('change', function(){
+      localStorage.setItem(k, inp.value);
+      updateAll();
+      if(container.id === 'evalInitiala'){
+        var echo = $('#initialScoreEcho');
+        if(echo) echo.textContent = inp.value;
+      }
+    });
+  });
+  if(container.id === 'evalInitiala' && saved !== null){
+    var echo = $('#initialScoreEcho');
+    if(echo) echo.textContent = saved;
+  }
+});
+
+/* ---------- read-toggle buttons ---------- */
+$$('[data-read-toggle]').forEach(function(btn, idx){
+  var section = btn.closest('section');
+  var k = NS + 'read_' + (section.id || idx);
+  function refresh(){
+    var done = localStorage.getItem(k) === '1';
+    btn.classList.toggle('done', done);
+    btn.textContent = done ? '✓ Secțiune parcursă' : '✓ Am parcurs această secțiune';
+  }
+  refresh();
+  btn.addEventListener('click', function(){
+    var done = localStorage.getItem(k) === '1';
+    localStorage.setItem(k, done ? '0':'1');
+    refresh();
+    updateAll();
+  });
+});
+
+/* ---------- indicator inputs persistence ---------- */
+$$('[data-indicator]').forEach(function(inp){
+  var k = NS + 'ind_' + inp.name;
+  var saved = localStorage.getItem(k);
+  if(saved !== null && saved === inp.value) inp.checked = true;
+  inp.addEventListener('change', function(){
+    localStorage.setItem(k, inp.value);
+    updateScore();
+    updateAll();
+  });
+});
+
+/* ---------- score computation ---------- */
+function updateScore(){
+  var total = 0, answered = 0;
+  for(var i=0;i<INDICATORS.length;i++){
+    var checked = $('input[name="indicator-'+i+'"]:checked');
+    if(checked){ total += parseInt(checked.value,10); answered++; }
+  }
+  $('#scoreTotal').textContent = total;
+  var avg = answered ? (total/10) : 0;
+  $('#scoreAvg').textContent = (total/10).toFixed(1).replace('.', ',');
+  $$('.interp-band').forEach(function(b){ b.classList.remove('active'); });
+  if(answered === INDICATORS.length){
+    var band = total<=40 ? 'lo' : (total<=70 ? 'mid' : 'hi');
+    var el = $('.interp-band[data-band="'+band+'"]');
+    if(el) el.classList.add('active');
+  }
+  return {total:total, answered:answered};
+}
+updateScore();
+
+/* ---------- progress calculation ---------- */
+function updateProgress(){
+  var units = 0, done = 0;
+
+  // reading sections (10)
+  var readSections = $$('[data-read-toggle]');
+  readSections.forEach(function(btn){ units++; if(btn.classList.contains('done')) done++; });
+
+  // exercises (5) - complete if all data-required fields in that section are non-empty
+  $$('[data-exercise]').forEach(function(sec){
+    units++;
+    var req = $$('[data-required]', sec);
+    var ok = req.length>0 && req.every(function(t){ return t.value.trim().length>0; });
+    if(ok) done++;
+  });
+
+  // journal days (3) - complete if date + data-required filled
+  $$('[data-journal]').forEach(function(sec){
+    units++;
+    var date = $('input[type=date]', sec);
+    var req = $$('[data-required]', sec);
+    var ok = date && date.value && req.every(function(t){ return t.value.trim().length>0; });
+    if(ok) done++;
+  });
+
+  // reflection (1) - all 9 fields filled
+  var reflSec = $('[data-reflection]');
+  if(reflSec){
+    units++;
+    var fields = $$('[data-required-reflect]', reflSec);
+    if(fields.every(function(t){ return t.value.trim().length>0; })) done++;
+  }
+
+  // autoeval (1) - all 10 indicators answered
+  units++;
+  var s = updateScore();
+  if(s.answered === INDICATORS.length) done++;
+
+  // final checklist (1) - all checked
+  units++;
+  var finals = $$('[data-final-item]');
+  if(finals.length && finals.every(function(c){ return c.checked; })) done++;
+
+  var pct = units ? Math.round((done/units)*100) : 0;
+  $('#progressBar').style.width = pct + '%';
+  $('#progressLabel').textContent = pct + '% complet';
+}
+
+function updateAll(){ updateScore(); updateProgress(); }
+updateAll();
+
+/* ---------- reset ---------- */
+$('#resetBtn').addEventListener('click', function(){
+  if(!confirm('Sigur vrei să resetezi tot progresul pentru P02 — Prezența Mentală? Această acțiune nu poate fi anulată.')) return;
+  var toRemove = [];
+  for(var i=0;i<localStorage.length;i++){
+    var k = localStorage.key(i);
+    if(k.indexOf(NS) === 0) toRemove.push(k);
+  }
+  toRemove.forEach(function(k){ localStorage.removeItem(k); });
+  location.reload();
+});
+
+})();
+</script>
+</body>
+</html>
