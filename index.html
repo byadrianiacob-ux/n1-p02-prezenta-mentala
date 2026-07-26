@@ -129,8 +129,43 @@ a{color:var(--navy);}
 .toc-num{font-family:var(--font); color:var(--muted); font-weight:700; font-size:12px; min-width:20px;}
 
 /* ---------- PANELS ---------- */
-.panel{padding:40px 0; border-bottom:1px solid var(--line);}
-.panel:last-child{border-bottom:none;}
+.panel{
+  padding:52px 48px;
+  margin:0 0 30px;
+  border-radius:var(--radius-lg);
+  border:1px solid var(--line-soft);
+  background:var(--card);
+  box-shadow:0 14px 38px -26px rgba(22,42,58,.22);
+}
+.panel:last-child{margin-bottom:0;}
+.panel.on-cream{background:var(--cream); box-shadow:none; border-color:var(--line-soft);}
+.panel.section-break{margin-top:54px;}
+.panel.final-card{border-color:var(--gold); border-width:1px;}
+
+.respiro-block{
+  background:var(--navy); color:#FAF7EF;
+  border-radius:var(--radius-lg);
+  padding:64px 40px;
+  margin:0 0 30px;
+  text-align:center;
+}
+.respiro-block .respiro-eyebrow{
+  font-family:var(--font); font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--gold); font-weight:700; margin:0 0 22px;
+}
+.respiro-block p{
+  font-family:var(--font); font-style:italic; font-weight:500;
+  font-size:22px; line-height:1.5; color:#FAF7EF;
+  max-width:520px; margin:0 auto;
+}
+.respiro-block .respiro-rule{width:42px; height:1px; background:rgba(200,162,74,.55); margin:26px auto 0;}
+
+@media (max-width:640px){
+  .panel{padding:32px 22px; margin-bottom:22px;}
+  .panel.section-break{margin-top:36px;}
+  .respiro-block{padding:44px 24px; margin-bottom:22px;}
+  .respiro-block p{font-size:18px;}
+}
 
 .panel-eyebrow{margin-bottom:14px;}
 .std-eyebrow{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
@@ -408,7 +443,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 
 <main class="container">
 
-<section class="panel" id="s01" data-read-section>
+<section class="panel on-cream" id="s01" data-read-section>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">01 · PREZENTARE</span></div>
   <h2>Prezentare generală</h2>
   <p class="lede">N1 — Prezență | P02 — Prezența Mentală</p>
@@ -462,7 +497,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
 </section>
 
-<section class="panel" id="s03" data-read-section>
+<section class="panel on-cream" id="s03" data-read-section>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">03 · ÎNȚELEGERE</span></div>
   <h2>De la observarea atenției la prezența mentală</h2>
   <p>În P01 ai învățat să observi unde se află atenția ta. Ai început să recunoști momentele în care atenția era prinsă în trecut, proiectată în viitor, orientată către exterior sau condusă de pilotul automat.</p>
@@ -499,7 +534,12 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
 </section>
 
-<section class="panel" id="s05" data-read-section>
+<div class="respiro-block">
+  <div class="respiro-eyebrow">Respiro</div>
+  <p>Trecutul este amintit acum.<br>Viitorul este imaginat acum.<br>Realitatea poate fi întâlnită numai acum.</p>
+  <div class="respiro-rule"></div>
+</div>
+<section class="panel on-cream" id="s05" data-read-section>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">05 · ÎNȚELEGERE</span></div>
   <h2>Ce este activitatea mentală?</h2>
   <p class="lede">Procesul prin care mintea reprezintă, interpretează și organizează experiența.</p>
@@ -521,7 +561,12 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
 </section>
 
-<section class="panel" id="s07" data-read-section>
+<div class="respiro-block">
+  <div class="respiro-eyebrow">Respiro</div>
+  <p>Nu trebuie să opresc mintea.<br>Trebuie să observ la ce răspunde.</p>
+  <div class="respiro-rule"></div>
+</div>
+<section class="panel on-cream" id="s07" data-read-section>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">07 · ÎNȚELEGERE</span></div>
   <h2>Mintea în afara prezentului și mintea prezentă</h2>
   <table class="compare cols2">
@@ -566,7 +611,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
 </section>
 
-<section class="panel" id="s09" data-read-section>
+<section class="panel on-cream" id="s09" data-read-section>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">09 · ÎNȚELEGERE</span></div>
   <h2>Ce urmăresc în acest pas</h2>
   <p>Pe parcursul acestui pas observ:</p>
@@ -623,7 +668,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
 </section>
 
-<section class="panel" id="ex1" data-exercise>
+<section class="panel on-cream" id="ex1" data-exercise>
   <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">1</span><span class="ex-label">EXERCIȚIUL 1</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Ce se desfășoară în mintea mea acum?</h2>
   <h3>Primul act de prezență mentală</h3>
@@ -737,7 +782,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <input type="text" data-store>
 </section>
 
-<section class="panel" id="ex3" data-exercise>
+<section class="panel on-cream" id="ex3" data-exercise>
   <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">3</span><span class="ex-label">EXERCIȚIUL 3</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Faptul prezent și construcția mentală</h2>
   <h3>Ce există și ce adaugă mintea?</h3>
@@ -866,7 +911,12 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <textarea data-store></textarea>
 </section>
 
-<section class="panel" id="ex5" data-exercise>
+<div class="respiro-block">
+  <div class="respiro-eyebrow">Respiro</div>
+  <p>Acesta este un gând.<br>Ce există acum?</p>
+  <div class="respiro-rule"></div>
+</div>
+<section class="panel on-cream" id="ex5" data-exercise>
   <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">5</span><span class="ex-label">EXERCIȚIUL 5</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Revenirea minții în prezent</h2>
   <h3>Învățând să gândești din contact cu realitatea prezentă</h3>
@@ -900,7 +950,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <textarea data-store></textarea>
 </section>
 
-<section class="panel" id="s11" data-read-section>
+<section class="panel section-break" id="s11" data-read-section>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">11 · PRACTICĂ</span></div>
   <h2>Practica în viața reală — 3 zile</h2>
   <p>Alege de cel puțin 3 ori pe zi un moment obișnuit. Scopul este să transferi prezența mentală din workbook în viața reală.</p>
@@ -966,7 +1016,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   </div>
 </section>
 
-<section class="panel" id="s13" data-journal>
+<section class="panel on-cream" id="s13" data-journal>
   <div class="panel-eyebrow journal-eyebrow"><span class="journal-num">2</span><span class="journal-label">JURNAL DE OBSERVARE — ZIUA 2</span></div>
   <h2>Jurnal de observare — Ziua 2</h2>
   <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
@@ -1020,7 +1070,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   </div>
 </section>
 
-<section class="panel" id="s15" data-reflection>
+<section class="panel on-cream" id="s15" data-reflection>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">15 · INTEGRARE</span></div>
   <h2>Reflecție de integrare</h2>
   <p>Ce devine vizibil după 3 zile? Nu căuta o concluzie perfectă. Notează ce a devenit observabil.</p>
@@ -1074,7 +1124,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <input type="date" data-store>
 </section>
 
-<section class="panel" id="s17" data-autoeval>
+<section class="panel on-cream" id="s17" data-autoeval>
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">17 · INTEGRARE</span></div>
   <h2>Autoevaluare — P02 — Prezența Mentală</h2>
   <p class="hint">0 = Deloc &nbsp;·&nbsp; 5 = Uneori &nbsp;·&nbsp; 10 = În mod constant</p>
@@ -1105,7 +1155,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <button class="read-toggle" data-read-toggle>✓ Am parcurs această secțiune</button>
 </section>
 
-<section class="panel" id="s19">
+<section class="panel final-card" id="s19">
   <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">19 · FINALIZARE</span></div>
   <h2>Finalizarea pasului</h2>
   <p class="hint">Accesul la pasul următor nu depinde de scor. Accesul depinde de completarea activităților și de cel puțin 6 opriri conștiente în 3 zile.</p>
@@ -1384,6 +1434,3 @@ $('#resetBtn').addEventListener('click', function(){
 });
 
 })();
-</script>
-</body>
-</html>
