@@ -5,37 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>N1 · P02 — Prezența Mentală | Inner Human Architecture™</title>
 <meta name="description" content="Workbook interactiv — Nivelul 1, Prezență, P02 — Prezența Mentală. Inner Human Architecture™.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#1A2C50;
-  --navy-2:#233a63;
-  --gold:#C4922A;
-  --gold-2:#E4C077;
-  --cream:#FCF9F4;
-  --cream-2:#F3EFE3;
-  --line:#E4DCC8;
-  --ink:#1A2C50;
-  --radius:14px;
-  --maxw:840px;
+  --navy:#162A3A;
+  --navy-soft:#233649;
+  --gold:#C8A24A;
+  --gold-light:#D9BE6F;
+  --cream:#F4EFE4;
+  --card:#FFFDF8;
+  --text:#2C3138;
+  --muted:#7A7468;
+  --line:rgba(122,116,104,.28);
+  --line-soft:rgba(22,42,58,.12);
+  --radius:4px;
+  --radius-lg:5px;
+  --pill:30px;
+  --maxw:860px;
+  --font:"Aptos Display", Aptos, "Segoe UI", system-ui, sans-serif;
+  --font-body:Aptos, "Segoe UI", system-ui, sans-serif;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
   margin:0;
   background:var(--cream);
-  color:var(--ink);
-  font-family:'Source Serif 4', Georgia, serif;
+  color:var(--text);
+  font-family:var(--font-body);
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
 }
 h1,h2,h3,h4,.serif-display{
-  font-family:'Cormorant Garamond', Georgia, serif;
+  font-family:var(--font);
   color:var(--navy);
   font-weight:600;
-  letter-spacing:.01em;
+  letter-spacing:-.01em;
 }
 a{color:var(--navy);}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 22px;}
@@ -43,238 +46,295 @@ a{color:var(--navy);}
 /* ---------- TOPBAR ---------- */
 .topbar{
   position:sticky; top:0; z-index:100;
-  background:rgba(252,249,244,.94);
+  background:rgba(244,239,228,.95);
   backdrop-filter:blur(6px);
-  border-bottom:1px solid var(--line);
+  border-bottom:1px solid var(--line-soft);
 }
 .topbar-inner{
-  max-width:var(--maxw); margin:0 auto; padding:10px 22px;
-  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  max-width:var(--maxw); margin:0 auto; padding:13px 22px;
+  display:flex; align-items:center; justify-content:space-between; gap:14px;
   flex-wrap:wrap;
 }
 .brandmark{
-  font-family:'Cormorant Garamond',serif;
-  font-weight:700; color:var(--gold);
-  font-size:15px; letter-spacing:.06em; text-transform:uppercase;
+  font-family:var(--font);
+  font-weight:700; color:var(--navy);
+  font-size:12px; letter-spacing:.14em; text-transform:uppercase;
   white-space:nowrap;
 }
 .crumbs{
-  font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:6px;
-  flex-wrap:wrap; justify-content:flex-end;
+  font-size:12.5px; color:var(--navy); display:flex; align-items:center; gap:8px;
+  flex-wrap:wrap; justify-content:center; flex:1;
 }
-.crumbs .step-current{color:var(--gold); font-weight:600;}
-.crumbs .sep{opacity:.5;}
-.crumbs .step-next{opacity:.55;}
-.progress-wrap{height:4px; background:var(--cream-2); width:100%;}
-.progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold-2)); transition:width .4s ease;}
-.progress-label{
-  font-size:11px; color:var(--navy); opacity:.7; text-align:right;
-  max-width:var(--maxw); margin:2px auto 0; padding:0 22px;
+.crumbs .step-badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:26px; height:26px; padding:0 8px; border-radius:50%;
+  background:var(--gold); color:var(--navy); font-weight:700; font-size:11px;
+  letter-spacing:.02em;
 }
+.crumbs .step-current-label{color:var(--navy); font-weight:600;}
+.crumbs .sep{opacity:.35; color:var(--gold);}
+.crumbs .step-next{opacity:.5; font-size:12px;}
+.progress-pct{
+  font-size:12px; color:var(--gold); font-weight:700; letter-spacing:.04em; white-space:nowrap;
+}
+.progress-wrap{height:2px; background:transparent; width:100%;}
+.progress-bar{height:100%; width:0%; background:linear-gradient(90deg,var(--gold),var(--gold-light)); transition:width .4s ease;}
 
 /* ---------- COVER ---------- */
 .cover{
   background:var(--navy);
-  color:var(--cream);
-  padding:64px 22px 50px;
+  color:#FAF7EF;
+  padding:80px 22px 54px;
   text-align:center;
   position:relative;
-  border-bottom:3px solid var(--gold);
 }
 .cover .kicker{
-  font-family:'Cormorant Garamond',serif; color:var(--gold);
-  font-size:26px; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  margin:0 0 18px;
+  font-family:var(--font); color:var(--gold);
+  font-size:12px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+  margin:0 0 20px;
 }
-.cover .rule{width:120px; height:1px; background:var(--gold); margin:0 auto 22px; opacity:.6;}
-.cover .lvl{font-size:13px; letter-spacing:.12em; text-transform:uppercase; opacity:.75; margin:0 0 6px;}
-.cover .step{font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; margin:0 0 18px;}
-.cover h1{color:var(--gold); font-size:clamp(38px,7vw,58px); margin:0 0 14px; line-height:1.05;}
-.cover .tagline{font-style:italic; color:var(--gold-2); font-size:17px; margin:0 0 26px;}
-.cover .meta{font-size:14px; opacity:.85; margin:0;}
-.cover .copyright{font-size:12px; opacity:.55; margin-top:22px;}
+.cover .rule{width:64px; height:1px; background:var(--gold); margin:0 auto 22px; opacity:.7;}
+.cover .lvl{font-size:12px; letter-spacing:.16em; text-transform:uppercase; opacity:.6; margin:0 0 8px;}
+.cover .step{font-family:var(--font); font-size:16px; font-weight:600; margin:0 0 22px; opacity:.85;}
+.cover h1{
+  color:#FAF7EF; font-weight:600;
+  font-size:clamp(44px,8.5vw,88px); margin:0 0 18px; line-height:1;
+  letter-spacing:-.02em;
+}
+.cover .tagline{font-style:italic; color:var(--gold-light); font-size:17px; margin:0 0 28px; font-family:var(--font);}
+.cover .meta-line{font-size:13.5px; opacity:.7; margin:0 0 4px;}
+.cover .copyright{font-size:11.5px; opacity:.45; margin-top:22px;}
 
 /* ---------- TOC ---------- */
-.toc-section{padding:36px 0 10px;}
+.toc-section{padding:44px 0 12px;}
 .toc-section h2{font-size:26px; margin:0 0 6px;}
-.toc-section .sub{font-size:14.5px; opacity:.75; margin:0 0 22px;}
-.toc-group{margin-bottom:20px;}
+.toc-section .sub{font-size:14px; color:var(--muted); margin:0 0 24px;}
+.toc-card{background:var(--card); border:1px solid var(--line-soft); border-radius:var(--radius-lg); padding:8px 26px;}
+.toc-group{padding:16px 0; border-bottom:1px solid var(--line);}
+.toc-group:last-child{border-bottom:none;}
 .toc-group-label{
-  font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold);
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--gold);
   font-weight:700; margin:0 0 10px;
 }
-.toc-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+.toc-list{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:0 24px;}
 .toc-list.single{grid-template-columns:1fr;}
 .toc-list a{
-  display:flex; align-items:baseline; gap:8px;
-  text-decoration:none; color:var(--navy);
-  background:var(--cream-2); border:1px solid var(--line); border-radius:10px;
-  padding:9px 12px; font-size:14px;
+  display:flex; align-items:baseline; gap:9px;
+  text-decoration:none; color:var(--text);
+  border-bottom:1px solid var(--line);
+  padding:9px 0; font-size:14px;
 }
-.toc-list a:hover{border-color:var(--gold);}
-.toc-num{font-family:'Cormorant Garamond',serif; color:var(--gold); font-weight:700; font-size:13px;}
+.toc-list a:hover{color:var(--navy);}
+.toc-list a:hover .toc-num{color:var(--gold);}
+.toc-num{font-family:var(--font); color:var(--muted); font-weight:700; font-size:12px; min-width:20px;}
 
 /* ---------- PANELS ---------- */
-.panel{padding:34px 0; border-bottom:1px solid var(--line);}
-.panel-eyebrow{
-  display:flex; align-items:center; gap:10px; margin-bottom:8px;
+.panel{padding:40px 0; border-bottom:1px solid var(--line);}
+.panel:last-child{border-bottom:none;}
+
+.panel-eyebrow{margin-bottom:14px;}
+.std-eyebrow{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+.eyebrow-left,.eyebrow-right{
+  font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:700; color:var(--gold);
 }
+.eyebrow-left{opacity:.9;}
+.eyebrow-right{opacity:.75; white-space:nowrap;}
+
+.ex-eyebrow{display:flex; align-items:center; gap:12px;}
+.ex-badge{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:44px; height:44px; border-radius:50%;
+  border:1.5px solid var(--gold); color:var(--gold);
+  font-family:var(--font); font-weight:700; font-size:16px;
+  flex-shrink:0;
+}
+.ex-label{font-size:11.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+.ex-tag{margin-left:auto; font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted);}
+
+.journal-eyebrow{display:flex; align-items:baseline; gap:16px;}
+.journal-num{
+  font-family:var(--font); font-size:44px; font-weight:600; color:var(--gold-light); line-height:1;
+}
+.journal-label{font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+
 .badge{
   display:inline-flex; align-items:center; justify-content:center;
   min-width:30px; height:30px; padding:0 8px;
   border-radius:50%; background:var(--navy); color:var(--gold);
-  font-family:'Cormorant Garamond',serif; font-weight:700; font-size:14px;
+  font-family:var(--font); font-weight:700; font-size:14px;
 }
-.badge.ex{border-radius:8px; background:var(--gold); color:var(--navy);}
-.eyebrow-label{font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--navy); opacity:.6;}
-.panel h2{font-size:28px; margin:2px 0 14px;}
-.panel h3{font-size:19px; margin:22px 0 8px; color:var(--navy);}
-.panel h4{font-size:16px; margin:16px 0 6px; color:var(--navy);}
-.panel p{margin:0 0 12px; font-size:16px;}
-.lede{font-size:17px; color:var(--navy); opacity:.85;}
+.badge.ex{border-radius:50%; background:none; border:1.5px solid var(--gold); color:var(--gold);}
+
+.panel h2{font-size:30px; margin:2px 0 14px; line-height:1.1;}
+.panel h3{font-size:18px; margin:24px 0 8px; color:var(--navy);}
+.panel h4{font-size:15px; margin:16px 0 6px; color:var(--navy); text-transform:uppercase; letter-spacing:.06em;}
+.panel p{margin:0 0 12px; font-size:15.5px; color:var(--text);}
+.lede{font-size:16.5px; color:var(--navy); opacity:.85;}
 .quote{
-  font-family:'Cormorant Garamond',serif; font-style:italic; color:var(--navy);
-  font-size:19px; border-left:3px solid var(--gold); padding:4px 0 4px 16px; margin:16px 0;
+  font-family:var(--font); font-style:italic; color:var(--navy);
+  font-size:19px; border-left:2px solid var(--gold); padding:2px 0 2px 16px; margin:18px 0;
 }
 .formula-box{
-  background:var(--cream-2); border:1px solid var(--gold); border-radius:var(--radius);
-  padding:18px 20px; font-family:'Cormorant Garamond',serif; font-weight:600; color:var(--navy);
-  font-size:18px; text-align:center; margin:18px 0;
+  background:var(--navy); border:none; border-radius:var(--radius-lg);
+  padding:20px 22px; font-family:var(--font); font-weight:600; color:#FAF7EF;
+  font-size:16px; text-align:center; margin:20px 0; font-style:italic;
 }
 .card{
-  background:var(--cream-2); border:1px solid var(--line); border-radius:var(--radius);
+  background:var(--card); border:1px solid var(--line-soft); border-radius:var(--radius-lg);
   padding:18px 20px; margin:14px 0;
 }
 .card.gold{border-color:var(--gold);}
-.read-toggle{
-  display:inline-flex; align-items:center; gap:8px; margin-top:18px;
-  font-size:13.5px; cursor:pointer; user-select:none; color:var(--navy);
-  background:none; border:1px solid var(--line); border-radius:20px; padding:7px 14px;
+
+/* duration cards */
+.duration-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:18px 0;}
+.duration-card{
+  background:var(--card); border:1px solid var(--line-soft); border-radius:var(--radius);
+  padding:16px 10px; text-align:center;
 }
-.read-toggle input{accent-color:var(--gold); width:15px; height:15px;}
-.read-toggle.done{border-color:var(--gold); background:var(--cream-2); color:var(--gold);}
+.duration-card .d-num{font-family:var(--font); color:var(--gold); font-weight:700; font-size:15px; margin-bottom:4px;}
+.duration-card .d-label{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted);}
+
+.read-toggle{
+  display:inline-flex; align-items:center; gap:6px; margin-top:20px;
+  font-size:12px; letter-spacing:.05em; text-transform:uppercase; cursor:pointer; user-select:none; color:var(--muted);
+  background:none; border:none; border-top:1px solid var(--line); padding:12px 0 0; font-family:var(--font-body);
+}
+.read-toggle:before{content:"○"; color:var(--muted); font-size:11px;}
+.read-toggle.done{color:var(--gold);}
+.read-toggle.done:before{content:"●"; color:var(--gold);}
 
 /* directives (Observă / Verifică ...) */
 .directives{display:grid; gap:6px; margin:14px 0;}
-.directive{font-size:15.5px;}
+.directive{font-size:15px;}
 .directive b{color:var(--gold);}
 
 /* ---------- FORM ELEMENTS ---------- */
-label.field-label{display:block; font-size:14.5px; font-weight:600; color:var(--navy); margin:16px 0 6px;}
-.hint{font-size:13px; font-style:italic; opacity:.7; margin:-2px 0 8px;}
+label.field-label{display:block; font-size:14px; font-weight:700; color:var(--navy); margin:18px 0 7px;}
+.hint{font-size:12.5px; font-style:italic; color:var(--muted); margin:-3px 0 8px;}
 input[type=text], input[type=date], textarea{
-  width:100%; font-family:'Source Serif 4',Georgia,serif; font-size:15px; color:var(--ink);
-  background:var(--cream); border:1px solid var(--line); border-radius:10px; padding:11px 13px;
+  width:100%; font-family:var(--font-body); font-size:14.5px; color:var(--text);
+  background:var(--card); border:1px solid var(--line-soft); border-radius:var(--radius); padding:12px 13px;
   resize:vertical;
 }
-textarea{min-height:70px;}
-input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(196,146,42,.12);}
+textarea{min-height:72px;}
+input[type=text]::placeholder, textarea::placeholder{color:var(--muted); font-style:italic;}
+input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; border-color:var(--gold); box-shadow:0 0 0 3px rgba(200,162,74,.14);}
 
-.options{display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 4px;}
-.opt{
-  position:relative;
-}
+.options{display:flex; flex-wrap:wrap; gap:8px; margin:8px 0 4px;}
+.opt{position:relative;}
 .opt input{position:absolute; opacity:0; width:100%; height:100%; margin:0; cursor:pointer;}
 .opt span{
-  display:inline-flex; align-items:center; gap:7px; font-size:14px;
-  background:var(--cream); border:1px solid var(--line); border-radius:20px;
-  padding:8px 14px; cursor:pointer; transition:.15s;
+  display:inline-flex; align-items:center; gap:7px; font-size:13.5px;
+  background:var(--card); border:1px solid var(--line-soft); border-radius:var(--pill);
+  padding:9px 15px; cursor:pointer; transition:.15s;
 }
-.opt span:before{content:"";width:9px;height:9px;border-radius:50%;border:1px solid var(--navy); opacity:.4;}
-.opt input[type=checkbox] + span:before{border-radius:3px;}
-.opt input:checked + span{background:var(--navy); border-color:var(--navy); color:var(--cream);}
+.opt span:before{content:"";width:9px;height:9px;border-radius:2px;border:1px solid var(--muted); opacity:.6;}
+.opt input:checked + span{background:var(--navy); border-color:var(--navy); color:#FAF7EF;}
 .opt input:checked + span:before{background:var(--gold); border-color:var(--gold); opacity:1;}
 
 .scale10{display:flex; gap:5px; flex-wrap:wrap;}
 .scale10 .opt span{
-  min-width:34px; justify-content:center; padding:8px 0; border-radius:8px; font-weight:600;
+  min-width:30px; justify-content:center; padding:7px 0; border-radius:var(--radius); font-weight:600;
 }
 .scale10 .opt span:before{display:none;}
 
 /* ---------- COMPARE TABLE ---------- */
-.compare{width:100%; border-collapse:collapse; margin:16px 0; font-size:14.5px;}
-.compare th{background:var(--navy); color:var(--cream); text-align:left; padding:10px 12px; font-weight:600;}
-.compare td{padding:10px 12px; border:1px solid var(--line); background:var(--cream);}
+.compare{width:100%; border-collapse:collapse; margin:18px 0; font-size:14px;}
+.compare th{background:var(--navy); color:#FAF7EF; text-align:left; padding:11px 13px; font-weight:600; font-family:var(--font);}
+.compare td{padding:11px 13px; border:1px solid var(--line-soft); background:var(--card);}
 .compare.cols3 th, .compare.cols3 td{width:33.33%;}
 
 /* ---------- SELF-ASSESSMENT ---------- */
 .indicator-row{
   display:grid; grid-template-columns:1fr auto; gap:14px; align-items:center;
-  padding:14px 0; border-bottom:1px dashed var(--line);
+  padding:15px 0; border-bottom:1px solid var(--line);
 }
-.indicator-row .idx-text{font-size:14.5px;}
-.indicator-row .idx-num{color:var(--gold); font-weight:700; margin-right:6px; font-family:'Cormorant Garamond',serif;}
-.score-panel{
-  background:var(--navy); color:var(--cream); border-radius:var(--radius); padding:22px;
-  display:flex; flex-wrap:wrap; gap:24px; justify-content:space-around; text-align:center; margin:20px 0;
+.indicator-row .idx-text{font-size:14px;}
+.indicator-row .idx-num{color:var(--gold); font-weight:700; margin-right:6px; font-family:var(--font);}
+.score-panel{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:22px 0;}
+.score-panel > div{
+  border-radius:var(--radius-lg); padding:20px; text-align:center;
 }
-.score-panel .num{font-family:'Cormorant Garamond',serif; font-size:36px; color:var(--gold); font-weight:700;}
-.score-panel .lbl{font-size:12px; letter-spacing:.08em; text-transform:uppercase; opacity:.8;}
-.interpretation{display:grid; gap:10px; margin:16px 0;}
-.interp-band{border:1px solid var(--line); border-radius:10px; padding:12px 14px; font-size:14.5px; opacity:.55;}
-.interp-band.active{border-color:var(--gold); background:var(--cream-2); opacity:1;}
+.score-panel > div:first-child{background:var(--navy); color:#FAF7EF;}
+.score-panel > div:last-child{background:var(--card); border:1px solid var(--line-soft); color:var(--navy);}
+.score-panel .num{font-family:var(--font); font-size:32px; font-weight:700; color:var(--gold);}
+.score-panel > div:last-child .num{color:var(--navy);}
+.score-panel .lbl{font-size:11px; letter-spacing:.08em; text-transform:uppercase; opacity:.75; margin-top:4px;}
+.interpretation{display:grid; gap:8px; margin:18px 0;}
+.interp-band{background:var(--card); border:1px solid var(--line-soft); border-radius:var(--radius); padding:13px 15px; font-size:14px; color:var(--muted);}
+.interp-band.active{border-color:var(--gold); color:var(--text);}
 .interp-band b{color:var(--navy);}
 
 /* ---------- CHECKLIST ---------- */
-.checklist{display:grid; gap:9px; margin:14px 0;}
-.checklist label{display:flex; gap:10px; align-items:flex-start; font-size:15px; cursor:pointer;}
-.checklist input{margin-top:4px; width:16px; height:16px; accent-color:var(--gold);}
+.checklist{display:grid; gap:1px; margin:16px 0; border:1px solid var(--line-soft); border-radius:var(--radius-lg); overflow:hidden;}
+.checklist label{display:flex; gap:10px; align-items:flex-start; font-size:14.5px; cursor:pointer; background:var(--card); padding:13px 16px;}
+.checklist input{margin-top:3px; width:15px; height:15px; accent-color:var(--gold);}
 
 /* ---------- TRANSITION ---------- */
 .transition-box{
-  background:var(--navy); color:var(--cream); border-radius:var(--radius);
-  padding:30px 26px; margin:22px 0; text-align:center; border:1px solid var(--gold);
+  background:var(--navy); color:#FAF7EF; border-radius:var(--radius-lg);
+  padding:32px 28px; margin:24px 0; text-align:center;
 }
-.transition-box .to{font-size:12px; letter-spacing:.1em; text-transform:uppercase; opacity:.7;}
-.transition-box h3{color:var(--gold); font-size:26px; margin:8px 0 16px;}
-.transition-box p{text-align:left; font-size:15px; opacity:.92;}
-.step-formula{display:grid; gap:6px; margin-top:18px; text-align:left; font-size:14.5px;}
+.transition-box .to{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+.transition-box h3{color:#FAF7EF; font-size:26px; margin:10px 0 18px; font-family:var(--font);}
+.transition-box p{text-align:left; font-size:14.5px; opacity:.88;}
+.step-formula{display:grid; gap:0; margin-top:20px; text-align:left; font-size:14px; border-top:1px solid rgba(250,247,239,.15);}
+.step-formula .row{padding:12px 0; border-bottom:1px solid rgba(250,247,239,.15);}
 .step-formula .row b{color:var(--gold); margin-right:6px;}
 
 /* ---------- FOOTER ---------- */
-.site-footer{background:var(--cream-2); padding:36px 0 60px; border-top:1px solid var(--line);}
-.site-footer .note-title{font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--gold); font-weight:700;}
-.site-footer p{font-size:13.5px; opacity:.8; margin:8px 0;}
+.site-footer{background:var(--card); padding:40px 0 60px; border-top:1px solid var(--line-soft);}
+.site-footer .note-title{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--gold); font-weight:700;}
+.site-footer .sub-title{font-size:12.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--navy); font-weight:700; margin:14px 0 6px;}
+.site-footer p{font-size:13px; color:var(--muted); margin:8px 0;}
+.site-footer hr{border:none; border-top:1px solid var(--line-soft); margin:20px 0;}
 .footer-word{
-  text-align:center; margin-top:26px; font-family:'Cormorant Garamond',serif;
-  color:var(--navy); letter-spacing:.14em; font-weight:700; font-size:13px;
+  text-align:center; margin-top:28px; font-family:var(--font);
+  color:var(--navy); letter-spacing:.16em; font-weight:700; font-size:12px;
 }
 .reset-btn{
-  display:block; margin:24px auto 0; background:none; border:1px solid var(--line); color:var(--navy);
-  opacity:.6; font-size:12.5px; padding:8px 16px; border-radius:20px; cursor:pointer; font-family:inherit;
+  display:block; margin:26px auto 0; background:none; border:1px solid var(--line-soft); color:var(--muted);
+  font-size:11.5px; padding:9px 18px; border-radius:var(--pill); cursor:pointer; font-family:var(--font-body);
 }
-.reset-btn:hover{opacity:1; border-color:var(--gold);}
+.reset-btn:hover{color:var(--gold); border-color:var(--gold);}
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width:640px){
   .toc-list{grid-template-columns:1fr;}
+  .duration-grid{grid-template-columns:1fr 1fr;}
   .compare, .compare thead{display:block;}
-  .compare tr{display:block; margin-bottom:10px; border:1px solid var(--line); border-radius:10px; overflow:hidden;}
+  .compare tr{display:block; margin-bottom:10px; border:1px solid var(--line-soft); border-radius:var(--radius);}
   .compare th{display:none;}
-  .compare td{display:block; border:none; border-bottom:1px solid var(--line);}
-  .compare td:before{content:attr(data-label); display:block; font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--gold); font-weight:700; margin-bottom:3px;}
+  .compare td{display:block; border:none; border-bottom:1px solid var(--line-soft);}
+  .compare td:before{content:attr(data-label); display:block; font-size:10.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--gold); font-weight:700; margin-bottom:3px;}
   .compare td:last-child{border-bottom:none;}
   .indicator-row{grid-template-columns:1fr;}
-  .cover{padding:48px 16px 36px;}
-  .cover h1{font-size:36px;}
+  .score-panel{grid-template-columns:1fr;}
+  .cover{padding:56px 18px 40px;}
+  .crumbs{order:3; width:100%; justify-content:flex-start;}
+  .topbar-inner{padding:12px 16px;}
 }
+@media (max-width:400px){
+  .duration-grid{grid-template-columns:1fr 1fr;}
+  .panel h2{font-size:24px;}
+}
+
 </style>
 </head>
 <body>
 
 <header class="topbar">
   <div class="topbar-inner">
-    <div class="brandmark">Inner Human Architecture™</div>
+    <div class="brandmark">N1 · Prezență</div>
     <div class="crumbs">
-      <span>N1 · Prezență</span>
-      <span class="sep">·</span>
-      <span class="step-current">P02 · Prezența Mentală</span>
+      <span class="step-badge">P02</span>
+      <span class="step-current-label">Prezența Mentală</span>
       <span class="sep">→</span>
       <span class="step-next">P03 · Prezența Emoțională</span>
     </div>
+    <div class="progress-pct" id="progressLabel">0%</div>
   </div>
   <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
-  <div class="progress-label" id="progressLabel">0% complet</div>
 </header>
 
 <section class="cover" id="top">
@@ -284,7 +344,9 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <p class="step">Nivelul 1 · Prezență — P02</p>
   <h1>Prezența<br>Mentală</h1>
   <p class="tagline">„La ce răspunde mintea mea acum?”</p>
-  <p class="meta">Workbook de practică și integrare · ~60 min de citit · 3 zile de practică</p>
+  <p class="meta-line">Workbook de practică și integrare</p>
+  <p class="meta-line">~60 min de citit</p>
+  <p class="meta-line">3 zile de practică</p>
   <p class="copyright">© 2026 Adrian Iacob · Toate drepturile rezervate</p>
 </section>
 
@@ -292,6 +354,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <h2>Cuprinsul pasului</h2>
   <p class="sub">Parcurge pașii în ordine. Citește lecția, lucrează exercițiile, ține jurnalul trei zile și încheie cu reflecția și autoevaluarea.</p>
 
+  <div class="toc-card">
   <div class="toc-group">
     <p class="toc-group-label">Înțelegere</p>
     <ul class="toc-list">
@@ -339,12 +402,13 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
       <li><a href="#s19"><span class="toc-num">19</span> Finalizarea pasului</a></li>
     </ul>
   </div>
+  </div>
 </section>
 
 <main class="container">
 
 <section class="panel" id="s01" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">01</span><span class="eyebrow-label">Prezentare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">01 · PREZENTARE</span></div>
   <h2>Prezentare generală</h2>
   <p class="lede">N1 — Prezență | P02 — Prezența Mentală</p>
 
@@ -353,7 +417,12 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
   <p>Să observ ce se desfășoară în mintea mea, să recunosc dacă aceasta răspunde trecutului, viitorului, unei interpretări sau situației prezente și să o readuc în contact cu ceea ce există concret acum.</p>
 
   <h3>Durată</h3>
-  <p>Citire: 10 minute &nbsp;·&nbsp; Exerciții: 20–30 minute &nbsp;·&nbsp; Jurnal: 3 zile &nbsp;·&nbsp; Total: ~60 min / 3 zile</p>
+  <div class="duration-grid">
+    <div class="duration-card"><div class="d-num">10 min</div><div class="d-label">Citire</div></div>
+    <div class="duration-card"><div class="d-num">20–30 min</div><div class="d-label">Exerciții</div></div>
+    <div class="duration-card"><div class="d-num">3 zile</div><div class="d-label">Jurnal</div></div>
+    <div class="duration-card"><div class="d-num">~60 min</div><div class="d-label">Total</div></div>
+  </div>
 
   <label class="field-label" for="numeMeu">Numele meu</label>
   <input type="text" id="numeMeu" data-store>
@@ -369,7 +438,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s02" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">02</span><span class="eyebrow-label">Lecție</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">02 · LECȚIE</span></div>
   <h2>Lecția N1-P02 — Prezența Mentală</h2>
   <p class="quote">„La ce răspunde mintea mea acum?”</p>
 
@@ -393,7 +462,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s03" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">03</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">03 · ÎNȚELEGERE</span></div>
   <h2>De la observarea atenției la prezența mentală</h2>
   <p>În P01 ai învățat să observi unde se află atenția ta. Ai început să recunoști momentele în care atenția era prinsă în trecut, proiectată în viitor, orientată către exterior sau condusă de pilotul automat.</p>
   <p>În P02 observarea merge mai departe. Nu mai observi doar unde se află atenția, ci și ce face mintea cu ea. Mintea poate:</p>
@@ -420,7 +489,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s04" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">04</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">04 · ÎNȚELEGERE</span></div>
   <h2>Ce este prezența mentală?</h2>
   <p class="lede">Capacitatea de a gândi din contact cu ceea ce există acum.</p>
   <p>Prezența mentală nu înseamnă absența gândurilor. Nu înseamnă o minte goală. Nu înseamnă liniște permanentă. Nu înseamnă control total asupra procesului mental. Nu înseamnă să nu îți amintești trecutul. Nu înseamnă să nu planifici viitorul.</p>
@@ -430,7 +499,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s05" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">05</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">05 · ÎNȚELEGERE</span></div>
   <h2>Ce este activitatea mentală?</h2>
   <p class="lede">Procesul prin care mintea reprezintă, interpretează și organizează experiența.</p>
   <p>Activitatea mentală include gândurile, imaginile interioare, amintirile, anticipările, comparațiile, interpretările, întrebările, concluziile și scenariile care apar în minte.</p>
@@ -442,7 +511,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s06" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">06</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">06 · ÎNȚELEGERE</span></div>
   <h2>Ce este absorbția mentală?</h2>
   <p class="lede">Când gândul ocupă întregul câmp al atenției.</p>
   <p>Absorbția mentală apare atunci când mintea este atât de implicată într-un gând, o amintire sau un scenariu încât nu mai observi procesul. Nu mai observi că gândești. Trăiești din interiorul gândului ca și cum acesta ar reprezenta în mod complet realitatea.</p>
@@ -452,7 +521,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s07" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">07</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">07 · ÎNȚELEGERE</span></div>
   <h2>Mintea în afara prezentului și mintea prezentă</h2>
   <table class="compare cols2">
     <thead><tr><th>Mintea orientată în afara prezentului</th><th>Mintea prezentă</th></tr></thead>
@@ -472,7 +541,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s08" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">08</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">08 · ÎNȚELEGERE</span></div>
   <h2>Al doilea pas al prezenței</h2>
   <p>În Inner Human Architecture™, primul pas este observarea atenției. Al doilea pas este observarea minții care folosește acea atenție.</p>
   <p>În P01 ai întrebat:</p>
@@ -497,7 +566,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s09" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">09</span><span class="eyebrow-label">Înțelegere</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">09 · ÎNȚELEGERE</span></div>
   <h2>Ce urmăresc în acest pas</h2>
   <p>Pe parcursul acestui pas observ:</p>
   <ul>
@@ -524,7 +593,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s10" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">10</span><span class="eyebrow-label">Orientare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">10 · ORIENTARE</span></div>
   <h2>Bine ai venit în P02</h2>
   <h3>Scop unic</h3>
   <p>Acest workbook are un singur scop:</p>
@@ -554,7 +623,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="ex1" data-exercise>
-  <div class="panel-eyebrow"><span class="badge ex">E1</span><span class="eyebrow-label">Exercițiu</span></div>
+  <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">1</span><span class="ex-label">EXERCIȚIUL 1</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Ce se desfășoară în mintea mea acum?</h2>
   <h3>Primul act de prezență mentală</h3>
   <p>Observă activitatea minții exact acum. Nu încerca să o oprești. Nu încerca să creezi liniște. Nu schimba gândul. Nu îl transforma într-o problemă. Observă că activitatea mentală există.</p>
@@ -607,7 +676,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="ex2" data-exercise>
-  <div class="panel-eyebrow"><span class="badge ex">E2</span><span class="eyebrow-label">Exercițiu</span></div>
+  <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">2</span><span class="ex-label">EXERCIȚIUL 2</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Gândul și realitatea prezentă</h2>
   <table class="compare cols2">
     <thead><tr><th>Gând trăit ca realitate</th><th>Gând observat</th></tr></thead>
@@ -668,7 +737,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="ex3" data-exercise>
-  <div class="panel-eyebrow"><span class="badge ex">E3</span><span class="eyebrow-label">Exercițiu</span></div>
+  <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">3</span><span class="ex-label">EXERCIȚIUL 3</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Faptul prezent și construcția mentală</h2>
   <h3>Ce există și ce adaugă mintea?</h3>
   <p>Alege o situație care îți ocupă mintea în acest moment. Poate fi o conversație, o decizie, o problemă, o relație, o așteptare sau un eveniment viitor.</p>
@@ -727,7 +796,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="ex4" data-exercise>
-  <div class="panel-eyebrow"><span class="badge ex">E4</span><span class="eyebrow-label">Exercițiu</span></div>
+  <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">4</span><span class="ex-label">EXERCIȚIUL 4</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Observ gândul fără să devin gândul</h2>
   <h3>Rolul observatorului</h3>
   <div class="formula-box">Identificare → Observare → Verificare</div>
@@ -797,7 +866,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="ex5" data-exercise>
-  <div class="panel-eyebrow"><span class="badge ex">E5</span><span class="eyebrow-label">Exercițiu</span></div>
+  <div class="panel-eyebrow ex-eyebrow"><span class="ex-badge">5</span><span class="ex-label">EXERCIȚIUL 5</span><span class="ex-tag">EXERCIȚIU</span></div>
   <h2>Revenirea minții în prezent</h2>
   <h3>Învățând să gândești din contact cu realitatea prezentă</h3>
   <h4>Pașii revenirii</h4>
@@ -831,7 +900,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s11" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">11</span><span class="eyebrow-label">Practică</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">11 · PRACTICĂ</span></div>
   <h2>Practica în viața reală — 3 zile</h2>
   <p>Alege de cel puțin 3 ori pe zi un moment obișnuit. Scopul este să transferi prezența mentală din workbook în viața reală.</p>
   <label class="field-label">Poți practica:</label>
@@ -862,7 +931,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s12" data-journal>
-  <div class="panel-eyebrow"><span class="badge">12</span><span class="eyebrow-label">Jurnal</span></div>
+  <div class="panel-eyebrow journal-eyebrow"><span class="journal-num">1</span><span class="journal-label">JURNAL DE OBSERVARE — ZIUA 1</span></div>
   <h2>Jurnal de observare — Ziua 1</h2>
   <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
   <label class="field-label">Data</label>
@@ -897,7 +966,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s13" data-journal>
-  <div class="panel-eyebrow"><span class="badge">13</span><span class="eyebrow-label">Jurnal</span></div>
+  <div class="panel-eyebrow journal-eyebrow"><span class="journal-num">2</span><span class="journal-label">JURNAL DE OBSERVARE — ZIUA 2</span></div>
   <h2>Jurnal de observare — Ziua 2</h2>
   <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
   <label class="field-label">Data</label>
@@ -924,7 +993,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s14" data-journal>
-  <div class="panel-eyebrow"><span class="badge">14</span><span class="eyebrow-label">Jurnal</span></div>
+  <div class="panel-eyebrow journal-eyebrow"><span class="journal-num">3</span><span class="journal-label">JURNAL DE OBSERVARE — ZIUA 3</span></div>
   <h2>Jurnal de observare — Ziua 3</h2>
   <p class="hint">Completează în 2–3 minute. Scrie ce observi, nu ceea ce crezi că ar trebui să observi.</p>
   <label class="field-label">Data</label>
@@ -951,7 +1020,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s15" data-reflection>
-  <div class="panel-eyebrow"><span class="badge">15</span><span class="eyebrow-label">Integrare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">15 · INTEGRARE</span></div>
   <h2>Reflecție de integrare</h2>
   <p>Ce devine vizibil după 3 zile? Nu căuta o concluzie perfectă. Notează ce a devenit observabil.</p>
 
@@ -976,7 +1045,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s16" data-observat>
-  <div class="panel-eyebrow"><span class="badge">16</span><span class="eyebrow-label">Integrare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">16 · INTEGRARE</span></div>
   <h2>Ce am observat despre mine în P02</h2>
 
   <label class="field-label">Mintea mea se ocupă cel mai des cu:</label>
@@ -1005,7 +1074,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s17" data-autoeval>
-  <div class="panel-eyebrow"><span class="badge">17</span><span class="eyebrow-label">Integrare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">17 · INTEGRARE</span></div>
   <h2>Autoevaluare — P02 — Prezența Mentală</h2>
   <p class="hint">0 = Deloc &nbsp;·&nbsp; 5 = Uneori &nbsp;·&nbsp; 10 = În mod constant</p>
 
@@ -1024,7 +1093,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s18" data-read-section>
-  <div class="panel-eyebrow"><span class="badge">18</span><span class="eyebrow-label">Integrare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">18 · INTEGRARE</span></div>
   <h2>Evaluare finală și interpretare</h2>
   <p>Pe o scală de la 0 la 10: cât de conștient sunt acum de locul din care funcționează mintea mea?</p>
   <div class="scale10" id="evalFinala" data-store-group data-scale="0-10"></div>
@@ -1036,7 +1105,7 @@ input[type=text]:focus, input[type=date]:focus, textarea:focus{outline:none; bor
 </section>
 
 <section class="panel" id="s19">
-  <div class="panel-eyebrow"><span class="badge">19</span><span class="eyebrow-label">Finalizare</span></div>
+  <div class="panel-eyebrow std-eyebrow"><span class="eyebrow-left">INNER HUMAN ARCHITECTURE™ INDIVIDUAL</span><span class="eyebrow-right">19 · FINALIZARE</span></div>
   <h2>Finalizarea pasului</h2>
   <p class="hint">Accesul la pasul următor nu depinde de scor. Accesul depinde de completarea activităților și de cel puțin 6 opriri conștiente în 3 zile.</p>
 
